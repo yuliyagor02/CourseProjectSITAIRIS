@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:switch="${studentGroups}">
+    <h2 th:case="null">Группы не найдены!</h2>
+    <div th:case="*">
+        <h2>Группы иностранных студентов</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Номер группы</th>
+                <th>Название факультета</th>
+                <th>Название специальности</th>
+                <th>Ступень образования</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="studentGroups : ${studentGroups}">
+                <td th:text="${studentGroups.id_group}"></td>
+                <td th:text="${studentGroups.faculty}"></td>
+                <td th:text="${studentGroups.speciality}"></td>
+                <td th:text="${studentGroups.stage_of_education}"></td>
+                <td><a th:href="@{studentGroupUpdate/{id}(id=${studentGroups.id_group})}">Edit</a></td>
+                <td><a th:href="@{delete-studentGroup/{id}(id=${studentGroups.id_group})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/add-studentGroup">Create user</a></p>
+</div>
+</body>
+</html>
