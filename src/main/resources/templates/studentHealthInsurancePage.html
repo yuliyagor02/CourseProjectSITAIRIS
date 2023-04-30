@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - МедСтраховка</title>
+</head>
+<body>
+<h1>Медицинская страховка</h1>
+<h3>Сегодняшняя дата: </h3>
+<p th:text="${actual_date}"></p>
+<h3>Окончание срока действия медицинской страховки: </h3>
+<p th:text="${insurance_validity}"></p>
+<h3>Осталось дней: </h3>
+<p th:text="${days_left}"></p>
+<a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br>
+</body>
+</html>

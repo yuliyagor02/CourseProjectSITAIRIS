@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Виза и регистрация</title>
+</head>
+<body>
+<h3>Сегодняшняя дата: </h3>
+<p th:text="${actual_date}"></p>
+<h1>Виза</h1>
+<h3>Окончание срока действия визы: </h3>
+<p th:text="${visa_validity}"></p>
+<h3>Осталось дней: </h3>
+<p th:text="${days_left1}"></p>
+<br><br>
+<h1>Временная регистрация</h1>
+<h3>Окончание срока временной регистрации: </h3>
+<p th:text="${registration_validity}"></p>
+<h3>Осталось дней: </h3>
+<p th:text="${days_left2}"></p>
+<a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br>
+</body>
+</html>

@@ -26,7 +26,7 @@ private final StudentGroupService studentGroupService;
     return "studentGroupsPage";
 }
     @GetMapping("/create-group")
-    public String createStudentGroupForm(StudentGroup studentGroup){
+    public String getStudentGroupCreatePage(StudentGroup studentGroup){
         return "studentGroupCreatePage";
     }
     @GetMapping("delete-group/{id}")
@@ -35,18 +35,18 @@ private final StudentGroupService studentGroupService;
         return"redirect:/groups";
     }
     @GetMapping("/update-group/{id}")
-    public String updateStudentGroupForm(@PathVariable("id") Long id, Model model){
+    public String getStudentGroupUpdatePage(@PathVariable("id") Long id, Model model){
         StudentGroup studentGroup = studentGroupService.findStudentGroupById(id);
         model.addAttribute("studentGroup",studentGroup);
         return "studentGroupUpdatePage";
     }
 @PostMapping("/create-group")
-    public String addStudentGroup(StudentGroup studentGroup){
+    public String sendStudentGroupCreateForm(StudentGroup studentGroup){
     studentGroupService.saveStudentGroup(studentGroup);
     return "redirect:/groups";
 }
 @PostMapping("/update-group")
-    public String updateStudentGroup(StudentGroup studentGroup){
+    public String sendStudentGroupUpdateForm(StudentGroup studentGroup){
     studentGroupService.saveStudentGroup(studentGroup);
     return "redirect:/groups";
 }

@@ -28,11 +28,11 @@ public class UserController {
         this.teacherService=teacherService;
     }
     @GetMapping("/sign-in")
-    public String getSignInForm( User user, Model model){
+    public String getSignInPage( User user, Model model){
     return "signInPage";
     }
     @GetMapping("/admin")
-    public String getStudentMainPage(Model model){
+    public String getAdminMainPage(Model model){
         return "adminMainPage";
     }
     @PostMapping("/sign-in")

@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.concurrent.TimeUnit;
+
 @Controller
 public class StudentController {
     private final StudentService studentService;
@@ -26,16 +30,75 @@ public class StudentController {
         this.studentGroupService=studentGroupService;
     }
     @GetMapping("/student-registration")
-    public String createStudentForm(Student student, User user, StudentGroup studentGroup){
+    public String getStudentRegistrationPage(Student student, User user, StudentGroup studentGroup){
     return "studentRegistrationPage";
     }
+    @GetMapping("/student-subjects-rating/{id}")
+    public String getStudentSubjectsRatingPage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        return "studentSubjectsRatingPage";
+    }
+    @GetMapping("/student-messages/{id}")
+    public String getStudentMessagesPage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        return "studentMessagesPage";
+    }
+    @GetMapping("/student-visa-and-temporary-registration/{id}")
+    public String getStudentVisaAndTemporaryRegistrationPage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        Student student = studentService.findStudentById(id);
+
+        Date visa_validity = student.getVisa_validity();
+        model.addAttribute("visa_validity",visa_validity);
+        Date actual_date = Date.valueOf(LocalDate.now());
+        model.addAttribute("actual_date",actual_date);
+        long difference1= visa_validity.getTime()-actual_date.getTime();
+        difference1 = TimeUnit.DAYS.convert(difference1,TimeUnit.MILLISECONDS);
+        model.addAttribute("days_left1",difference1);
+
+        Date registration_validity = student.getTemporary_registration_validity();
+        model.addAttribute("registration_validity",registration_validity);
+        long difference2 = registration_validity.getTime()-actual_date.getTime();
+        difference2 = TimeUnit.DAYS.convert(difference2,TimeUnit.MILLISECONDS);
+        model.addAttribute("days_left2",difference2);
+        return "studentVisaAndTemporaryRegistrationPage";
+    }
+    @GetMapping("/student-health-insurance/{id}")
+    public String getStudentHealthInsurancePage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        Student student = studentService.findStudentById(id);
+        Date validity = student.getHealth_insurance_validity();
+        model.addAttribute("insurance_validity",validity);
+        Date actual_date= Date.valueOf(LocalDate.now());
+        model.addAttribute("actual_date",actual_date);
+        long difference= validity.getTime()-actual_date.getTime();
+        difference = TimeUnit.DAYS.convert(difference,TimeUnit.MILLISECONDS);
+        //System.out.println("Осталось дней: "+difference);
+        model.addAttribute("days_left",difference);
+        return "studentHealthInsurancePage";
+    }
+    @GetMapping("/student-statements/{id}")
+    public String getStudentStatementsPage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        return "studentStatementsPage";
+    }
+    @GetMapping("/student-marks/{id}")
+    public String getStudentMarksPage(@PathVariable("id") Long id,Model model){
+    model.addAttribute("id",id);
+    return "studentMarksPage";
+    }
+    @GetMapping("/update-student/{id}")
+    public String getStudentUpdatePage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        return "studentUpdatePage";
+    }
     @GetMapping("/student/{id}")
-    public String getStudentMainPage(@PathVariable("id") String login,Model model){
-    model.addAttribute("login",login);
-return "studentMainPage";
+    public String getStudentMainPage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        return "studentMainPage";
     }
     @PostMapping("/student-registration")
-    public String addStudent(Student student, User user, UserRole userRole, StudentGroup studentGroup){
+    public String sendStudentRegistrationForm(Student student, User user, UserRole userRole, StudentGroup studentGroup){
     userService.saveUser(user);
     student.setUser(user);
     userRole.setUser(user);
