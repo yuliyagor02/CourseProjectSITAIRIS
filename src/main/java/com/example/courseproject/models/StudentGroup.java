@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 public class StudentGroup {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_group; //номер группы
     private String faculty;
     private String speciality;

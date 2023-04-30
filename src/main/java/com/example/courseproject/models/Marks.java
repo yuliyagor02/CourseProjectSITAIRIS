@@ -15,7 +15,8 @@ public class Marks {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id_mark;
-    private Date date_of_receipt; //день, когда была высавлена отметка
+    private Date date_of_receipt; //день, когда была выставлена отметка
+    private int mark;
     @ManyToOne (cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     private Subject subject;
     @ManyToOne (cascade=CascadeType.ALL, fetch=FetchType.EAGER)

@@ -20,32 +20,12 @@ public class User {
     private String patronymic;
     private String phone_number;
     private String email;
+    private String login;
+    private String password;
     @OneToMany(mappedBy = "user",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<UserRole> user_roles;
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//    private Student student;
      @OneToOne(mappedBy = "user")
-//     @PrimaryKeyJoinColumn
-     private Admin admin;
-
+     private Teacher teacher;
      @OneToOne(mappedBy = "user")
-//     @PrimaryKeyJoinColumn
      private Student student;
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="student_id",referencedColumnName = "id_student")
-//    private Student student;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="admin_id",referencedColumnName = "id_admin")
-//    private Admin admin;
-    //@PrimaryKeyJoinColumn
-    //private Admin admin;
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Student student;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Admin admin;
 }

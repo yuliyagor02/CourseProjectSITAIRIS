@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
-<title>Create user</title>
+<title>CampusKids - Группа</title>
 </head>
 <body>
-<form action="#" th:action="@{/studentGroupUpdate}" th:object="${studentGroup}" method="post">
+<form action="#" th:action="@{/update-group}" th:object="${studentGroup}" method="post">
     <label for="id">Номер группы</label>
-<!--    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">-->
     <input type="number" th:field="*{id_group}" id="id" placeholder="Номер группы">
     <br/>
-    <label for="faculty">Название </label>
+    <label for="faculty">Название факультета</label>
     <input type="text" th:field="*{faculty}" id="faculty" placeholder="Название факультета">
     <br/>
-    <label for="speciality">Last name</label>
+    <label for="speciality">Название специальности</label>
     <input type="text" th:field="*{speciality}" id="speciality" placeholder="Название специальности">
     <br/>
     <label for="stage">Ступень образования</label>
     <input type="text" th:field="*{stage_of_education}" id="stage" placeholder="Ступень образования">
     <br/>
-    <input type="submit" value="Обновить группу">
+    <input type="submit" value="Изменить данные">
 </form>
 </body>
 </html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Регистрация</title>
+</head>
+<body>
+<h1>Создайте учётную запись студента</h1>
+<form action="#" th:action="@{/student-registration}"  method="post">
+    <label for="surname">Фамилия</label>
+    <input type="text" th:field="*{user.surname}" id="surname" placeholder="Фамилия">
+    <label for="name">Имя</label>
+    <input type="text" th:field="*{user.name}" id="name" placeholder="Имя">
+    <label for="patronymic">Отчество</label>
+    <input type="text" th:field="*{user.patronymic}" id="patronymic" placeholder="Отчество">
+    <label for="email">Адрес электронной почты</label>
+    <input type="email" th:field="*{user.email}" id="email" placeholder="E-mail">
+    <label for="phone_number">Номер телефона</label>
+    <input type="text" th:field="*{user.phone_number}" id="phone_number" placeholder="Номер телефона">
+    <label for="login">Логин</label>
+    <input type="text" th:field="*{user.login}" id="login" placeholder="Логин">
+    <label for="password">Пароль</label>
+    <input type="password" th:field="*{user.password}" id="password" placeholder="Пароль">
+
+    <label for="id_student">Номер зачётной книжки</label>
+    <input type="number" th:field="*{student.id_student}" id="id_student" placeholder="Номер зачётной книжки">
+    <label for="date_of_birth">Дата рождения</label>
+    <input type="date" th:field="*{student.date_of_birth}" id="date_of_birth" placeholder="Дата рождения">
+    <label for="health_date">Срок действия медицинской страховки</label>
+    <input type="date" th:field="*{student.health_insurance_validity}" id="health_date" placeholder="МедСтраховка">
+    <label for="hobbies">Хобби</label>
+    <input type="text" th:field="*{student.hobbies}" id="hobbies" placeholder="Хобби">
+    <label for="city">Родной город</label>
+    <input type="text" th:field="*{student.home_city}" id="city" placeholder="Родной город">
+    <label for="country">Родная страна</label>
+    <input type="text" th:field="*{student.home_country}" id="country" placeholder="Родная страна">
+    <label for="dorm">Общежитие</label>
+    <input type="number" th:field="*{student.is_dormitory}" id="dorm" placeholder="Наличие общежития">
+    <label for="is_health_insurance">Медицинская страховка</label>
+    <input type="number" th:field="*{student.is_health_insurance}" id="is_health_insurance" placeholder="Наличие медстраховки">
+    <label for="passp_number">Номер паспорта</label>
+    <input type="text" th:field="*{student.passport_number}" id="passp_number" placeholder="Номер паспорта">
+    <label for="passp_series">Серия паспорта</label>
+    <input type="text" th:field="*{student.passport_series}" id="passp_series" placeholder="Серия паспорта">
+    <label for="skills">Навыки</label>
+    <input type="text" th:field="*{student.skills}" id="skills" placeholder="Навыки">
+    <label for="temporary_registration_address">Адрес временной прописки</label>
+    <input type="text" th:field="*{student.temporary_registration_address}" id="temporary_registration_address" placeholder="Адрес временной прописки">
+    <label for="temporary_registration_validity">Срок временной прописки</label>
+    <input type="date" th:field="*{student.temporary_registration_validity}" id="temporary_registration_validity" placeholder="Срок временной прописки">
+    <label for="visa_validity">Срок действия визы</label>
+    <input type="date" th:field="*{student.visa_validity}" id="visa_validity" placeholder="Срок действия визы">
+    <label for="group">Номер группы</label>
+    <input type="text" th:field="*{studentGroup.id_group}" id="group" placeholder="Группа">
+    <input type="submit" field="Зарегистрироваться">
+</form>
+</body>
+</html>

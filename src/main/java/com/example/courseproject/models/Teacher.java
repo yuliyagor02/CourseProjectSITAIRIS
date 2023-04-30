@@ -11,15 +11,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Admin {
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_admin;
+    private Long id_teacher;
     private String position;
-    @OneToMany(mappedBy = "admin",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    private List<AdminSubject> admin_subjects;
+    @OneToMany(mappedBy = "teacher",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    private List<TeacherSubject> teacher_subjects;
     @OneToOne
-//    @MapsId
-//    @JoinColumn(name="id_admin")
     private User user;
 }

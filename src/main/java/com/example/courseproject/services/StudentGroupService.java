@@ -30,7 +30,7 @@ public class StudentGroupService {
     public StudentGroup  saveStudentGroup(StudentGroup studentGroup){
                 return studentGroupRepository.save(studentGroup);
     }
-    public void deleteById(Long id){
+    public void deleteStudentGroupById(Long id){
                studentGroupRepository.deleteById(id);
     }
 }

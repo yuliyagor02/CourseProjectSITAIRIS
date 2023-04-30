@@ -14,7 +14,6 @@ import java.util.List;
 @Entity
 public class Student {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_student; //номер студенческого
     private Date date_of_birth;
     private String passport_series;
@@ -38,7 +37,5 @@ public class Student {
     @OneToMany(mappedBy = "student",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<Marks> marks;
     @OneToOne
-//    @MapsId
-//    @JoinColumn(name="id_student")
     private User user;
 }

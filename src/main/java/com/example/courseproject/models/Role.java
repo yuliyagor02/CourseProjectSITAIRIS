@@ -16,8 +16,7 @@ public class Role {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id_role;
     private String role_name;
-    private String login;
-    private String password;
+
     @OneToMany(mappedBy = "role",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<UserRole> user_roles;
 }

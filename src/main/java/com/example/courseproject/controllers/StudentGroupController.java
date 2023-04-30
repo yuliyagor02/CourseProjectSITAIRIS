@@ -19,35 +19,35 @@ private final StudentGroupService studentGroupService;
     this.studentGroupService=studentGroupService;
 }
 
-@GetMapping("/studentGroups")
+@GetMapping("/groups")
     public String getStudentGroupsPage(Model model){
     List<StudentGroup> studentGroups=studentGroupService.findAllStudentGroups();
     model.addAttribute("studentGroups",studentGroups);
     return "studentGroupsPage";
 }
-@PostMapping("/add-studentGroup")
+    @GetMapping("/create-group")
+    public String createStudentGroupForm(StudentGroup studentGroup){
+        return "studentGroupCreatePage";
+    }
+    @GetMapping("delete-group/{id}")
+    public String deleteStudentGroupById(@PathVariable("id") Long id){
+        studentGroupService.deleteStudentGroupById(id);
+        return"redirect:/groups";
+    }
+    @GetMapping("/update-group/{id}")
+    public String updateStudentGroupForm(@PathVariable("id") Long id, Model model){
+        StudentGroup studentGroup = studentGroupService.findStudentGroupById(id);
+        model.addAttribute("studentGroup",studentGroup);
+        return "studentGroupUpdatePage";
+    }
+@PostMapping("/create-group")
     public String addStudentGroup(StudentGroup studentGroup){
     studentGroupService.saveStudentGroup(studentGroup);
-    return "redirect:/studentGroups";
+    return "redirect:/groups";
 }
-@GetMapping("/add-studentGroup")
-    public String createStudentGroupForm(StudentGroup studentGroup){
-    return "studentGroupCreatePage";
-}
-@GetMapping("delete-studentGroup/{id}")
-    public String deleteStudentGroupById(@PathVariable("id") Long id){
-    studentGroupService.deleteById(id);
-    return"redirect:/studentGroups";
-}
-@GetMapping("/studentGroupUpdate/{id}")
-    public String updateStudentGroupForm(@PathVariable("id") Long id, Model model){
-    StudentGroup studentGroup = studentGroupService.findStudentGroupById(id);
-    model.addAttribute("studentGroup",studentGroup);
-    return "studentGroupUpdatePage";
-}
-@PostMapping("/studentGroupUpdate")
+@PostMapping("/update-group")
     public String updateStudentGroup(StudentGroup studentGroup){
     studentGroupService.saveStudentGroup(studentGroup);
-    return "redirect:/studentGroups";
+    return "redirect:/groups";
 }
 }

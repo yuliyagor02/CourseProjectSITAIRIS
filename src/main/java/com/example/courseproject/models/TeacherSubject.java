@@ -9,12 +9,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class AdminSubject {
+public class TeacherSubject {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id_admin_subject;
+    private Long id_teacher_subject;
     @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    private Admin admin;
+    private Teacher teacher;
     @ManyToOne (cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private Subject subject;
 }

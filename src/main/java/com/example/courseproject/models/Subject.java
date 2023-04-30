@@ -22,5 +22,5 @@ public class Subject {
     @OneToMany(mappedBy = "subject",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<Marks> marks;
     @OneToMany(mappedBy = "subject",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    private List<AdminSubject> admin_subjects;
+    private List<TeacherSubject> teacher_subjects;
 }
