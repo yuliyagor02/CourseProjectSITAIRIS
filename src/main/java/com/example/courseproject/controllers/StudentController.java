@@ -82,11 +82,11 @@ public class StudentController {
         model.addAttribute("id",id);
         return "studentStatementsPage";
     }
-    @GetMapping("/student-marks/{id}")
-    public String getStudentMarksPage(@PathVariable("id") Long id,Model model){
-    model.addAttribute("id",id);
-    return "studentMarksPage";
-    }
+//    @GetMapping("/student-marks/{id}")
+//    public String getStudentMarksPage(@PathVariable("id") Long id,Model model){
+//        model.addAttribute("id",id);
+//        return "studentMarksPage";
+//    }
     @GetMapping("/update-student/{id}")
     public String getStudentUpdatePage(@PathVariable("id") Long id,Model model){
         model.addAttribute("id",id);

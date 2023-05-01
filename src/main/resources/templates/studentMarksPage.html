@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,51 @@
     <title>CampusKids - Оценки</title>
 </head>
 <body>
-<h1>Оценки студента</h1>
+<h1>Мои оценки</h1>
+
+<div th:switch="${marks}">
+    <h2 th:case="null">Оценки не найдены!</h2>
+    <div th:case="*">
+        <table>
+            <tr>
+                <td><table>
+                    <thead>
+                    <tr>
+                        <th>Название предмета</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="subject : ${subjects}">
+                        <td th:text="${subject.subject_name}"></td>
+                        <!--                    <td th:if="${mark.subject.subject_id_subject == subject.id_subject}">-->
+                        <!--                    </td>-->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table></td>
+                <td> <table>
+                    <thead>
+                    <tr>
+                        <th>Оценки</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="mark1 : ${marks1}">
+                        <td th:text="${mark1}"></td>
+                        <!--                    <td th:if="${mark.subject.subject_id_subject == subject.id_subject}">-->
+                        <!--                    </td>-->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table></td>
+            </tr>
+        </table>
+
+
+    </div>
+    <p><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br></p>
+</div>
+
 </body>
 </html>
