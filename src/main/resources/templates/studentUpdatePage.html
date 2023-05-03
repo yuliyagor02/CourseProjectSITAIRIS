@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,5 +9,19 @@
 </head>
 <body>
 <h1>Редактирование студента</h1>
+<form action="#" th:action="@{/update-student}"  method="post">
+<!--    th:object="${student}"-->
+    <p th:text="${student.id_student}"></p>
+    <label for="hobbies">Хобби</label>
+    <input type="text" th:field="*{student.hobbies}" id="hobbies" placeholder="Хобби">
+    <label for="skills">Навыки</label>
+    <input type="text" th:field="*{student.skills}" id="skills" placeholder="Навыки">
+<!--    <label for="group">Номер группы</label>-->
+<!--    <input type="hidden" th:field="*{studentGroup.id_group}" id="group" placeholder="Группа">-->
+<!--    <label for="password">Пароль</label>-->
+<!--    <input type="password" th:field="*{password}" id="password" placeholder="Пароль">-->
+    <input name="id_stud" type="hidden" th:value="${student.id_student}">
+    <input type="submit" value="Обновить данные">
+</form>
 </body>
 </html>

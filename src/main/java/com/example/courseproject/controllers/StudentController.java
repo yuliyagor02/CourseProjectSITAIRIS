@@ -8,9 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Controller
@@ -33,16 +36,8 @@ public class StudentController {
     public String getStudentRegistrationPage(Student student, User user, StudentGroup studentGroup){
     return "studentRegistrationPage";
     }
-    @GetMapping("/student-subjects-rating/{id}")
-    public String getStudentSubjectsRatingPage(@PathVariable("id") Long id,Model model){
-        model.addAttribute("id",id);
-        return "studentSubjectsRatingPage";
-    }
-    @GetMapping("/student-messages/{id}")
-    public String getStudentMessagesPage(@PathVariable("id") Long id,Model model){
-        model.addAttribute("id",id);
-        return "studentMessagesPage";
-    }
+
+
     @GetMapping("/student-visa-and-temporary-registration/{id}")
     public String getStudentVisaAndTemporaryRegistrationPage(@PathVariable("id") Long id,Model model){
         model.addAttribute("id",id);
@@ -82,16 +77,18 @@ public class StudentController {
         model.addAttribute("id",id);
         return "studentStatementsPage";
     }
+
+    @GetMapping("/university")
+    public String getUniversityPage(Model model){
+        //model.addAttribute("id",id);
+        return "universityPage";
+    }
 //    @GetMapping("/student-marks/{id}")
 //    public String getStudentMarksPage(@PathVariable("id") Long id,Model model){
 //        model.addAttribute("id",id);
 //        return "studentMarksPage";
 //    }
-    @GetMapping("/update-student/{id}")
-    public String getStudentUpdatePage(@PathVariable("id") Long id,Model model){
-        model.addAttribute("id",id);
-        return "studentUpdatePage";
-    }
+
     @GetMapping("/student/{id}")
     public String getStudentMainPage(@PathVariable("id") Long id,Model model){
         model.addAttribute("id",id);
@@ -109,6 +106,30 @@ public class StudentController {
     userRole.setRole(role);
     userRoleService.saveUserRole(userRole);
     return "redirect:/sign-in";
+    }
+
+    @GetMapping("/update-student/{id}")
+    public String getStudentUpdatePage(@PathVariable("id") Long id,Model model){
+        model.addAttribute("id",id);
+        Student student = studentService.findStudentById(id);
+        model.addAttribute("student",student);
+        StudentGroup studentGroup = student.getGroup();
+        User user = student.getUser();
+        model.addAttribute("studentGroup",studentGroup);
+        model.addAttribute("user",user);
+        return "studentUpdatePage";
+    }
+    @PostMapping("/update-student")
+    public String sendStudentUpdateForm(@RequestParam(name="id_stud")Long id_stud, Student student, StudentGroup studentGroup, User user){
+        System.out.println("hobbie "+student.getHobbies());
+        System.out.println("skills "+student.getSkills());
+        Student student1 = studentService.findStudentById(id_stud);
+        student1.setHobbies(student.getHobbies());
+        student1.setSkills(student.getSkills());
+
+        studentService.saveStudent(student1);
+
+    return "redirect:/student/"+Long.toString(student1.getId_student());
     }
 
 }

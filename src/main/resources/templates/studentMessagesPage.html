@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,5 +9,34 @@
 </head>
 <body>
 <h1>Сообщения студента</h1>
+<div th:switch="${messages}">
+    <h2 th:case="null">История сообщений пуста!</h2>
+    <div th:case="*">
+        <h2>Мои сообщения</h2>
+        <table th:each="mess:${messages}">
+            <thead>
+            <th>Тема:</th>
+            <th>Отправлено:</th>
+            </thead>
+            <tr>
+                <td th:text="${mess.theme}"></td>
+                <td th:text="${mess.sent_on}"></td>
+            </tr>
+            <tr>
+                <td th:text="${mess.message_content}"></td>
+                <td th:if="${mess.isRead==0}">
+                    <form action="#" th:action="@{/update-messages-status}" method="post">
+<!--                    <a th:if="${mess.isRead==0}" th:href="@{student-messages/{id}(id=${id})}">Прочитано</a>-->
+                        <input type="submit" value="Прочитано">
+                        <input type="hidden" name="id" th:value="${id}">
+                        <input type="hidden" name="id_mess" th:value="${mess.id_message}">
+                    </form>
+                </td>
+                <td th:unless="${mess.isRead==1}"></td>
+            </tr>
+        </table>
+    </div>
+    <p><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br></p>
+</div>
 </body>
 </html>

@@ -9,8 +9,10 @@
 </head>
 <body>
 <h1>Hi, teacher!</h1>
-<!--убрать строку ниже-->
-<p th:text="${login}"></p>
+<a th:href="@{/marks-control}">Отметки студентов</a><br><br>
+<a th:href="@{/students-by-groups}">Списки групп</a><br><br>
+<a th:href="@{/stages}">Ступени образования по количеству иностранных студентов</a><br><br>
 
+<a th:href="@{/sign-in}">Выйти</a><br><br>
 </body>
 </html>

@@ -12,4 +12,16 @@ public class TeacherController {
         model.addAttribute("login",login);
         return "teacherMainPage";
     }
+    @GetMapping("/stages")
+    public String getStagesPage(){
+        return "stagesPage";
+    }
+    @GetMapping("/marks-control")
+    public String getMarksControlPage(){
+        return "marksControlPage";
+    }
+    @GetMapping("/students-by-groups")
+    public String getStudentsByGroupsPage(){
+        return "studentsByGroupsPage";
+    }
 }
