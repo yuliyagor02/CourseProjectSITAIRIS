@@ -17,8 +17,8 @@ public class Marks {
     private Long id_mark;
     private Date date_of_receipt; //день, когда была выставлена отметка
     private int mark;
-    @ManyToOne (cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne (fetch=FetchType.LAZY)
     private Subject subject;
-    @ManyToOne (cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne (fetch=FetchType.LAZY)
     private Student student;
 }

@@ -19,6 +19,6 @@ public class Message {
     private String message_content;
     private Date sent_on; //дата отправки сообщения
     private byte isRead; //статус (просмотрено/не просмотрено)
-    @ManyToOne(cascade = CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     private Student student;
 }

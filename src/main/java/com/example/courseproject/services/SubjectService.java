@@ -26,4 +26,13 @@ public class SubjectService {
     public List<Subject> findSubjectsByGroup(StudentGroup studentGroup){
     return studentGroup.getSubjects();
     }
+    public Subject saveOrUpdateSubject(Subject subject){
+    return subjectRepository.save(subject);
+    }
+    public void deleteSubjectById(Long id){
+    subjectRepository.deleteById(id);
+    }
+    public Subject findSubjectById(Long id){
+    return subjectRepository.findById(id).orElse(null);
+    }
 }

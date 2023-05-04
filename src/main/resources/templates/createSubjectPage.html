@@ -9,5 +9,17 @@
 </head>
 <body>
 <h1>Добавление дисциплины</h1>
+<!--th:object="${subject}"-->
+<form action="#" th:action="@{/create-subject}"  method="post">
+<label for="id_group">Номер группы</label>
+<input type="number"  th:field="*{studentGroup.id_group}" id="id_group" placeholder="Номер группы">
+<label for="code">Код предмета</label>
+<input type="text" th:field="*{subject.id_subject}" id="code" placeholder="Код предмета">
+<label for="subj">Название дисциплины</label>
+<input type="text" th:field="*{subject.subject_name}" id="subj" placeholder="Название дисциплины">
+<label for="hours">Учебные часы</label>
+<input type="text" th:field="*{subject.study_hours}" id="hours" placeholder="Учебные часы">
+<input type="submit" value="Добавить в учебный план">
+</form>
 </body>
 </html>

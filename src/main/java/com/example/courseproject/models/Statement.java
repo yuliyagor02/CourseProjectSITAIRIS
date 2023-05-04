@@ -21,6 +21,6 @@ public class Statement {
     private String reason;
     private Date missing_class_date;
     private byte isPrinted; //напечатана/не напечатана
-    @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     private Student student;
 }

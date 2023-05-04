@@ -28,13 +28,13 @@
                 <td th:text="${subject.id_subject}"></td>
                 <td th:text="${subject.subject_name}"></td>
                 <td th:text="${subject.study_hours}"></td>
-                <td><a th:href="@{update-subject/{id}(id=${subject.id_subject})}">Изменить</a></td>
-                <td><a th:href="@{delete-subject/{id}(id=${subject.id_subject})}">Удалить</a></td>
+<!--                <td><a th:href="@{update-subject/{id}(id=${subject.id_subject})}">Изменить</a></td>-->
+                <td><a th:href="@{/delete-subject/{id}(id=${subject.id_subject})}">Удалить</a></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <p><a href="/create-subject">Дисциплина +</a></p>
+    <p><a th:href="@{/create-subject/{id_group}(id_group=${id_group})}">Дисциплина +</a></p>
 </div>
 </body>
 </html>

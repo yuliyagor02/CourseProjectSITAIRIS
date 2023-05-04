@@ -28,13 +28,13 @@ public class Student {
     private Date temporary_registration_validity;
     private String skills;
     private String hobbies;
-    @ManyToOne (cascade = CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne (fetch=FetchType.LAZY)
     private StudentGroup group;
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "student", fetch=FetchType.LAZY)
     private List<Message> messages;
-    @OneToMany(mappedBy = "student", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "student",  fetch=FetchType.LAZY)
     private List<Statement> statements;
-    @OneToMany(mappedBy = "student",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "student",fetch=FetchType.LAZY)
     private List<Marks> marks;
     @OneToOne
     private User user;

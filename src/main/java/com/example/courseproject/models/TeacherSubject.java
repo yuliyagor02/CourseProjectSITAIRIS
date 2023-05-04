@@ -13,8 +13,8 @@ public class TeacherSubject {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id_teacher_subject;
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     private Teacher teacher;
-    @ManyToOne (cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne (fetch=FetchType.LAZY)
     private Subject subject;
 }

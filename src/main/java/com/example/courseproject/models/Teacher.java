@@ -16,7 +16,7 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_teacher;
     private String position;
-    @OneToMany(mappedBy = "teacher",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "teacher",fetch=FetchType.LAZY)
     private List<TeacherSubject> teacher_subjects;
     @OneToOne
     private User user;

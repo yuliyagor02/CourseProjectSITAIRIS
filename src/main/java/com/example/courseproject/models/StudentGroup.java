@@ -17,8 +17,8 @@ public class StudentGroup {
     private String faculty;
     private String speciality;
     private String stage_of_education; //бакалавриат, магистратура...
-    @OneToMany(mappedBy = "group",cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "group",fetch=FetchType.LAZY)
     private List<Student> students;
-    @OneToMany(mappedBy="student_group",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="student_group",fetch=FetchType.LAZY)
     private List<Subject> subjects;
 }

@@ -17,10 +17,10 @@ public class Subject {
     private Long id_subject; //код предмета
     private String subject_name;
     private int study_hours;
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne( fetch=FetchType.LAZY)
     private StudentGroup student_group;
-    @OneToMany(mappedBy = "subject",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "subject",fetch=FetchType.LAZY)
     private List<Marks> marks;
-    @OneToMany(mappedBy = "subject",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "subject",fetch=FetchType.LAZY)
     private List<TeacherSubject> teacher_subjects;
 }
