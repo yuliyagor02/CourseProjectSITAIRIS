@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,6 +33,20 @@ public class StudentGroupService {
     }
     public void deleteStudentGroupById(Long id){
                studentGroupRepository.deleteById(id);
+    }
+    public int getAllFirstStageStudents(String stage){
+    List<StudentGroup> allStudentGroups=studentGroupRepository.findAll();
+    List<StudentGroup> firstStageGroups=new ArrayList<>();
+    for(StudentGroup group: allStudentGroups){
+        if(group.getStage_of_education().equals(stage)){
+            firstStageGroups.add(group);
+        }
+    }
+    int quantityOfStudents=0;
+    for(StudentGroup group:firstStageGroups){
+        quantityOfStudents+=group.getStudents().size();
+    }
+    return quantityOfStudents;
     }
 
 }

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Учебный план</title>
+</head>
+<body>
+<h1>Работа с учебным планом</h1>
+<form action="#" th:action="@{/update-subject/{id}}" th:object="${subjects}" method="post">
+    <label for="id">Номер группы</label>
+    <input type="number" th:field="*{id_group}" id="id" placeholder="Номер группы">
+    <br/>
+    <label for="faculty">Название факультета</label>
+    <input type="text" th:field="*{faculty}" id="faculty" placeholder="Название факультета">
+    <br/>
+    <label for="speciality">Название специальности</label>
+    <input type="text" th:field="*{speciality}" id="speciality" placeholder="Название специальности">
+    <br/>
+    <label for="stage">Ступень образования</label>
+    <input type="text" th:field="*{stage_of_education}" id="stage" placeholder="Ступень образования">
+    <br/>
+    <input type="submit" value="Изменить данные">
+</form>
+</body>
+</html>
+
+

@@ -9,5 +9,15 @@
 </head>
 <body>
 <h1>Отправить сообщение</h1>
+<!--Удалила action="#"-->
+<form  th:action="@{/student-send-message}"  method="post">
+    <label for="id_student">Номер зачётной книжки студента:</label>
+    <input type="text" name="id_stud" th:field="*{student.id_student}" id="id_student" placeholder="Номер зачётки">
+    <label for="theme">Тема:</label>
+    <input type="text" th:field="*{message.theme}" id="theme" placeholder="Тема сообщения">
+    <label for="message_content">Текст сообщения</label>
+    <input type="text" th:field="*{message.message_content}" id="message_content" placeholder="Текст сообщения">
+    <input type="submit" value="Отправить сообщение">
+</form>
 </body>
 </html>

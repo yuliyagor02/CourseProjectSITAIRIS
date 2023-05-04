@@ -9,5 +9,34 @@
 </head>
 <body>
 <h1>Работа с учебным планом</h1>
+<div th:switch="${subjects}">
+    <h2 th:case="null">Учебный план для данной группы не составлен!</h2>
+    <div th:case="*">
+        <h2></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Группа</th>
+                <th>Код предмета</th>
+                <th>Название дисциплины</th>
+                <th>Учебные часы</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="subject : ${subjects}">
+                <td th:text="${id_group}"></td>
+                <td th:text="${subject.id_subject}"></td>
+                <td th:text="${subject.subject_name}"></td>
+                <td th:text="${subject.study_hours}"></td>
+                <td><a th:href="@{update-subject/{id}(id=${subject.id_subject})}">Изменить</a></td>
+                <td><a th:href="@{delete-subject/{id}(id=${subject.id_subject})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/create-subject">Дисциплина +</a></p>
+</div>
 </body>
 </html>
+
+

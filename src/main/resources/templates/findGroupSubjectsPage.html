@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Учебный план</title>
+</head>
+<body>
+<form  th:action="@{/find-group-subjects}" method="post">
+    <label for="id_group">Введите номер группы:</label>
+    <input type="text" th:name="id_group" id="id_group" placeholder="Номер группы">
+    <input type="submit" value="ДАЛЕЕ">
+</form>
+</body>
+</html>

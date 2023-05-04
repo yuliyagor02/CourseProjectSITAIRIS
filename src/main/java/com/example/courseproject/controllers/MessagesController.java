@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -38,5 +41,24 @@ public class MessagesController {
     message1.setIsRead(a);
     messagesService.saveMessage(message1);
     return"redirect:/student-messages/"+Long.toString(student.getId_student());
+    }
+    @GetMapping("/student-send-message")
+    public String getStudentSendMessagePage(Model model, Student student, Message message){
+        return "studentSendMessagePage";
+    }
+//    @RequestParam(name="id_stud") Long id_stud,
+    @PostMapping("/student-send-message")
+    public String sendStudentSendMessageForm(Message message,Student student){
+    Student student1 = studentService.findStudentById(student.getId_student());
+    List<Message> messagesOfStudent = messagesService.findMessagesByStudentId(student.getId_student());
+    byte a=0;
+    message.setIsRead(a);
+    Date actual_date = Date.valueOf(LocalDate.now());
+    message.setSent_on(actual_date);
+    message.setStudent(student1);
+    messagesOfStudent.add(message);
+    messagesService.saveMessage(message);
+    student1.setMessages(messagesOfStudent);
+        return "redirect:/student-send-message";
     }
 }

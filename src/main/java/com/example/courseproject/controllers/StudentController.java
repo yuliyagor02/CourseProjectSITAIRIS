@@ -132,4 +132,5 @@ public class StudentController {
     return "redirect:/student/"+Long.toString(student1.getId_student());
     }
 
+
 }
