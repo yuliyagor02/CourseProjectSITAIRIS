@@ -22,7 +22,7 @@
             var secondCountry=[[${country2}]];
             var thirdCountry=[[${country3}]];
             var fourthCountry=[[${country4}]];
-            var fifthCountry=[[${country5}]];
+            // var fifthCountry=[[${country5}]];
             // Create the data table.
             var data = new google.visualization.arrayToDataTable([
                 ['Country', 'Students'],
@@ -30,42 +30,29 @@
                 ['KZ', secondCountry],
                 ['UZ', thirdCountry],
                 ['CN', fourthCountry],
-                ['World', fifthCountry]
+                // ['World', fifthCountry]
             ]);
-            // data.addColumn('string', 'Страна');
-            // data.addColumn('number', 'Студентов');
-            // data.addRows([
-            //     ['Россия', firstCountry],
-            //     ['Казахстан', secondCountry],
-            //     ['Узбекистан', thirdCountry],
-            //     ['Китай', fourthCountry],
-            //     ['Другое', fifthCountry]
-            // ]);
-
-            // Set chart options
-            // var options = {displayMode: 'text'};
             var options = {
-
-                // // region: '142', // Africa
-                // colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
-                // backgroundColor: '#81d4fa',
-                // datalessRegionColor: '#f8bbd0',
-                // defaultColor: '#f5f5f5',
+                colorAxis: {colors: ['lightblue', 'darkblue']}
             };
-                // ,
-                // width:400,
-                // height:300,
-                // };
-
             // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
             chart.draw(data, options);
         }
     </script>
+    <link th:href="@{/styles/geographyStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>География студентов</h1>
-<div id="regions_div" style="width: 900px; height: 500px;"></div>
-<!--style="border: 1px solid #ccc"-->
+<!--<h1>CampusKids - администратор</h1>-->
+<table>
+    <thead>
+    <th rowspan="2"><h2>ГЕОГРАФИЯ НАШИХ ИНОСТРАННЫХ СТУДЕНТОВ</h2></th>
+    </thead>
+    <tbody>
+    <td><div id="regions_div" style="width: 100%; height: 550px;"></div></td>
+
+    </tbody>
+</table>
+<p><a th:href="@{/admin}">НАЗАД</a></p>
 </body>
 </html>

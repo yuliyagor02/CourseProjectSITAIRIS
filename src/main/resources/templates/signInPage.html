@@ -6,19 +6,52 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CampusKids - Вход</title>
+  <link th:href="@{/styles/signInStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Войдите в учётную запись</h1>
-<form action="#" th:action="@{/sign-in}" method="post">
-<label for="login">Логин:</label>
-<input type="text" th:field="*{user.login}" id="login" placeholder="Логин">
-<br/>
-<label for="password">Пароль</label>
-<input type="password" th:field="*{user.password}" id="password" placeholder="Пароль">
-<br/>
-<a href="/student-registration">Создать учётную запись</a></p>
-  <input type="submit" value="ВОЙТИ">
-  <p th:if="${param.fail}">Неверные данные для входа</p>
-</form>
+<h1>CampusKids</h1>
+    <h2>ВОЙДИТЕ В УЧЁТНУЮ ЗАПИСЬ</h2>
+      <form th:class="${param.fail!=null} ?'wrong'" action="#" th:action="@{/sign-in}" method="post">
+        <label for="login">ЛОГИН:  </label>
+        <input type="text" th:field="*{user.login}" id="login" placeholder="Логин" class="inp">
+        <br/>
+        <label for="password">ПАРОЛЬ:</label>
+        <input type="password" th:field="*{user.password}" id="password" placeholder="Пароль">
+        <br/>
+        <p th:if="${param.fail}" class="fail">НЕВЕРНЫЕ ДАННЫЕ ДЛЯ ВХОДА</p>
+        <input type="submit" value="ВОЙТИ">
+        <p><a href="/student-registration">СОЗДАТЬ УЧЁТНУЮ ЗАПИСЬ</a></p>
+      </form>
+
+<h3>CampusKids</h3>
+
+<!--    <header>-->
+<!--      <p>Header</p>-->
+<!--    </header>-->
+<!--    <main>-->
+<!--      <article>-->
+<!--        <h1>ВОЙДИТЕ В УЧЁТНУЮ ЗАПИСЬ</h1>-->
+<!--        <form th:class="${param.fail!=null} ?'wrong'" action="#" th:action="@{/sign-in}" method="post">-->
+<!--          <label for="login">ЛОГИН:  </label>-->
+<!--          <input type="text" th:field="*{user.login}" id="login" placeholder="Логин" class="inp">-->
+<!--          <br/>-->
+<!--          <label for="password">ПАРОЛЬ:</label>-->
+<!--          <input type="password" th:field="*{user.password}" id="password" placeholder="Пароль">-->
+<!--          <br/>-->
+<!--          <p th:if="${param.fail}" class="fail">НЕВЕРНЫЕ ДАННЫЕ ДЛЯ ВХОДА</p>-->
+<!--          <input type="submit" value="ВОЙТИ">-->
+<!--          <p><a href="/student-registration">СОЗДАТЬ УЧЁТНУЮ ЗАПИСЬ</a></p>-->
+<!--        </form>-->
+<!--      </article>-->
+<!--      <nav>-->
+<!--        <p>Navigation</p>-->
+<!--      </nav>-->
+<!--      <aside>-->
+<!--        <p>Sidebar</p>-->
+<!--      </aside>-->
+<!--    </main>-->
+<!--    <footer>-->
+<!--      <p>Footer</p>-->
+<!--    </footer>-->
 </body>
 </html>

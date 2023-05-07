@@ -6,18 +6,50 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Сообщения</title>
+    <link th:href="@{/styles/sendMessage.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Отправить сообщение</h1>
-<!--Удалила action="#"-->
-<form  th:action="@{/student-send-message}"  method="post">
-    <label for="id_student">Номер зачётной книжки студента:</label>
-    <input type="text" name="id_stud" th:field="*{student.id_student}" id="id_student" placeholder="Номер зачётки">
-    <label for="theme">Тема:</label>
-    <input type="text" th:field="*{message.theme}" id="theme" placeholder="Тема сообщения">
-    <label for="message_content">Текст сообщения</label>
-    <input type="text" th:field="*{message.message_content}" id="message_content" placeholder="Текст сообщения">
-    <input type="submit" value="Отправить сообщение">
-</form>
+<h1>CampusKids - администратор</h1>
+<h2>СОЗДАНИЕ ОПОВЕЩЕНИЯ</h2>
+<table>
+    <thead>
+    <tr>
+        <th rowspan="2"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="cell1">
+            <form  th:action="@{/student-send-message}"  method="post">
+                <label for="student">ЗАЧЁТНАЯ КНИЖКА:</label><br>
+                <select id="student" name="allStudents" >
+                    <option th:each="allStudents : ${allStudents}"
+                            th:value="${allStudents.id_student}"
+                            th:text="${allStudents.id_student}"
+                    >
+
+                    </option>
+                </select><br>
+
+                <!--    <input type="text" name="id_stud" th:field="*{student.id_student}" id="id_student" placeholder="Номер зачётки"><br>-->
+                <label for="theme">ТЕМА:</label><br>
+                <input type="text" th:field="*{message.theme}" id="theme" placeholder="Тема сообщения"><br>
+                <label for="message_content">ТЕКСТ ОПОВЕЩЕНИЯ</label><br>
+                <input type="text" th:field="*{message.message_content}" id="message_content" placeholder="Текст сообщения"><br>
+                <input type="submit" value="ОТПРАВИТЬ">
+            </form>
+        </td>
+        <td>
+            <img height="430px" weight="750px" th:src="@{/styles/alarm.avif}"/>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <p><a th:href="@{/admin}" class="back">НАЗАД</a></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>CampusKids</h3>
 </body>
 </html>

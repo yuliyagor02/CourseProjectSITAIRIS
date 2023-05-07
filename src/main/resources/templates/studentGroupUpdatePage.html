@@ -2,22 +2,29 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
 <title>CampusKids - Группа</title>
+<link th:href="@{/styles/groupUpdateStyle.css}" rel="stylesheet"/>
 </head>
 <body>
+<h1>CampusKids - администратор</h1>
 <form action="#" th:action="@{/update-group}" th:object="${studentGroup}" method="post">
-    <label for="id">Номер группы</label>
-    <input type="number" th:field="*{id_group}" id="id" placeholder="Номер группы">
+    <label for="id">НОМЕР ГРУППЫ</label><br>
+    <input type="number" th:field="*{id_group}" id="id" placeholder="Номер группы" readonly>
     <br/>
-    <label for="faculty">Название факультета</label>
+    <label for="faculty">НАЗВАНИЕ ФАКУЛЬТЕТА</label><br>
     <input type="text" th:field="*{faculty}" id="faculty" placeholder="Название факультета">
     <br/>
-    <label for="speciality">Название специальности</label>
+    <label for="speciality">НАЗВАНИЕ СПЕЦИАЛЬНОСТИ</label><br>
     <input type="text" th:field="*{speciality}" id="speciality" placeholder="Название специальности">
     <br/>
-    <label for="stage">Ступень образования</label>
+    <label for="stage">СТУПЕНЬ ОБРАЗОВАНИЯ</label><br>
     <input type="text" th:field="*{stage_of_education}" id="stage" placeholder="Ступень образования">
     <br/>
-    <input type="submit" value="Изменить данные">
+    <div class="buttons">
+        <input type="submit" value="ИЗМЕНИТЬ" class="changeCl">
+        <p><a th:href="@{/groups}" class="back">НАЗАД</a></p>
+    </div>
 </form>
+
+<h3>CampusKids</h3>
 </body>
 </html>

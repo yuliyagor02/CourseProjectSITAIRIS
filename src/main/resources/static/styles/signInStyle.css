@@ -1,0 +1,123 @@
+body{
+    /*background-color: cornflowerblue;*/
+    /*background: linear-gradient(lightgoldenrodyellow,lightgreen);*/
+    background: linear-gradient(royalblue,cornflowerblue) fixed;
+}
+form{
+    background-color: rgba(255, 255, 255, 0.5);
+    width:500px;
+    height: 300px;
+    border-radius: 25px;
+    margin-left:515px;
+    margin-top:30px;
+    text-align: center;
+    padding-top:90px;
+    font-family: Verdana;
+    color:#2c2caf;
+    font-weight: bold;
+    font-size: large;
+}
+h1{
+    font-family: Verdana;
+    background-color: #2c2caf;
+    color:white;
+    text-align: center;
+    margin-top:10px;
+    font-size: 55px;
+    border-radius: 15px;
+}
+h2{
+    color:white;
+    text-align: center;
+    font-family: Verdana;
+}
+input{
+border-radius: 10px;
+    height: 30px;
+    margin-left:10px;
+    width:190px;
+    border-color: #2c2caf;
+    margin:10px;
+    color:#2c2caf;
+    font-weight: bold;
+    font-size: large;
+}
+.inp{
+    margin-left: 19px;
+}
+.fail{
+    color:white;
+}
+a{
+    color:#2c2caf;
+    font-size: small;
+}
+h3{
+    background-color: #2c2caf;
+    color:white;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 35px;
+    border-radius: 15px;
+    margin-top: 100px;
+}
+.wrong{
+    background-color: rgba(255,0,0,0.5);
+    color:white;
+}
+
+/*///////////////////////////////*/
+
+/* *{*/
+/*     box-sizing: border-box;*/
+/* }*/
+/*html, body {*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    font-family: verdana, arial, sans-serif;*/
+/*}*/
+
+/*body {*/
+/*    color: #fff;*/
+/*    font-size: 1.1em;*/
+/*    padding: 1em;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*main {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*article {*/
+/*    background-color: #546e7a;*/
+/*    flex: 2 2 12em;*/
+/*    padding: 1em;*/
+/*}*/
+
+/*nav, aside {*/
+/*    flex: 1;*/
+/*    background-color: #455a64;*/
+/*}*/
+
+/*nav {*/
+/*    order: -1;*/
+/*}*/
+
+/*header, footer {*/
+/*    flex: 0 0 5em;*/
+/*    background-color: #37474f;*/
+/*}*/
+
+/*@media screen and (min-width: 600px) {*/
+
+/*    body{*/
+/*        min-height: 100vh;*/
+/*    }*/
+/*    main {*/
+/*        flex-direction: row;*/
+/*        min-height: 100%;*/
+/*        flex: 1 1 auto;*/
+/*    }*/
+/*}*/

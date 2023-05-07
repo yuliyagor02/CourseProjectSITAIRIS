@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Отметки</title>
+</head>
+<body>
+<h1>Работа с отметками</h1>
+<table>
+<tr>
+    <td>
+        <table>
+            <thead>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.surname}">
+                </td>
+                <td th:text="${user.name}">
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </td>
+
+    <td>
+        <table>
+            <thead>
+            <th>Номер зачётки</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id_student}">
+                </td>
+                <td><a th:href="@{/marks-control/{id_group}/{id_student}(id_group=${id_st},id_student=${student.id_student})}">Выбрать</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </td>
+</tr>
+</table>
+
+<!--    <form action="#" th:action="@{/marks-group-control}"  method="post">-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <th>Предмет</th>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="students : ${students}">-->
+<!--            <td th:text="${students.id_student}"> </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
+<!--            <label for="id_student">Номер зачётки</label>-->
+<!--            <select id="id_student">-->
+<!--                <option th:each="students : ${students}">${students.id_student}</option>-->
+<!--            </select>-->
+<!--            &lt;!&ndash;    <input type="number"  th:field="*{student.id_student}" id="id_student" placeholder="Номер зачётной книжки">&ndash;&gt;-->
+<!--            <label for="subj_name">Номер зачётки</label>-->
+<!--            <select id="subj_name">-->
+<!--                <option th:each="subjects : ${subjects}">${subjects.academic_discipline}</option>-->
+<!--            </select>-->
+<!--            &lt;!&ndash;    <input type="number"  th:field="*{student.id_student}" id="discipl" placeholder="Дисциплина">&ndash;&gt;-->
+<!--            <label for="mark">Отметка</label>-->
+<!--            <select id="mark">-->
+<!--                <option th:each="marks : ${marks}">${marks}</option>-->
+<!--            </select> -->
+<!--        </div>-->
+
+<!--</form>-->
+</body>
+</html>

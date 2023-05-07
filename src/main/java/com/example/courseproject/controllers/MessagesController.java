@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -44,13 +45,17 @@ public class MessagesController {
     }
     @GetMapping("/student-send-message")
     public String getStudentSendMessagePage(Model model, Student student, Message message){
+    List<Student> allStudents=studentService.findAll();
+    model.addAttribute("allStudents",allStudents);
         return "studentSendMessagePage";
     }
 //    @RequestParam(name="id_stud") Long id_stud,
     @PostMapping("/student-send-message")
-    public String sendStudentSendMessageForm(Message message,Student student){
-    Student student1 = studentService.findStudentById(student.getId_student());
+    public String sendStudentSendMessageForm(@RequestParam(name="allStudents") Long id,Message message,Student student){
+//    Student student1 = studentService.findStudentById(student.getId_student());
+        Student student1 = studentService.findStudentById(id);
     List<Message> messagesOfStudent = messagesService.findMessagesByStudentId(student.getId_student());
+    if(messagesOfStudent==null) messagesOfStudent=new ArrayList<>();
     byte a=0;
     message.setIsRead(a);
     Date actual_date = Date.valueOf(LocalDate.now());

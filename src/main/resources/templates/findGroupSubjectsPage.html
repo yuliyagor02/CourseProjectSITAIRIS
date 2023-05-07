@@ -6,12 +6,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Учебный план</title>
+    <link th:href="@{/styles/findGroupSubjects.css}" rel="stylesheet"/>
 </head>
 <body>
+<h1>CampusKids - администратор</h1>
+<h2>ВЫБОР УЧЕБНОЙ ГРУППЫ</h2>
 <form  th:action="@{/find-group-subjects}" method="post">
-    <label for="id_group">Введите номер группы:</label>
-    <input type="text" th:name="id_group" id="id_group" placeholder="Номер группы">
+    <label for="id_group">ВВЕДИТЕ НОМЕР ГРУППЫ:</label>
+
+    <select id="id_group" name="allGroups" >
+        <option th:each="allGroups : ${allGroups}"
+                th:value="${allGroups.id_group}"
+                th:text="${allGroups.id_group}"
+        >
+        </option>
+    </select>
+
+<!--    <input type="text" th:name="id_group" id="id_group" placeholder="Номер группы">-->
     <input type="submit" value="ДАЛЕЕ">
 </form>
+<p><a th:href="@{/admin}">НАЗАД</a><br><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

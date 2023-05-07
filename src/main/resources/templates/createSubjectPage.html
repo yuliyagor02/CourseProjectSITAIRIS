@@ -6,20 +6,32 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Добавить дисциплину</title>
+    <link th:href="@{/styles/createSubject.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Добавление дисциплины</h1>
+<h1>CampusKids - администратор</h1>
+<table>
+    <tr>
+        <td class="pict">
+            <img height="470px" weight="800px" th:src="@{/styles/books.webp}"/>
+        </td>
+        <td class="frm">
+            <form action="#" th:action="@{/create-subject}"  method="post">
+                <label for="id_group">НОМЕР ГРУППЫ</label><br>
+                <input type="number"  th:field="*{studentGroup.id_group}" th:value="${studentGroup.id_group}" id="id_group" th:placeholder="${studentGroup.id_group}" readonly><br>
+                <label for="code">КОД ПРЕДМЕТА</label><br>
+                <input type="text" th:field="*{subject.id_subject}" th:value="${id_subj}" id="code" th:placeholder="${id_subj}" readonly><br>
+                <label for="subj">НАЗВАНИЕ ДИСЦИПЛИНЫ</label><br>
+                <input type="text" th:field="*{subject.subject_name}" id="subj" placeholder="Название дисциплины"><br>
+                <label for="hours">УЧЕБНЫЕ ЧАСЫ</label><br>
+                <input type="text" th:field="*{subject.study_hours}" id="hours" placeholder="Учебные часы"><br>
+                <input type="submit" value="ДОБАВИТЬ В УЧЕБНЫЙ ПЛАН">
+            </form>
+        </td>
+    </tr>
+</table>
 <!--th:object="${subject}"-->
-<form action="#" th:action="@{/create-subject}"  method="post">
-<label for="id_group">Номер группы</label>
-<input type="number"  th:field="*{studentGroup.id_group}" id="id_group" placeholder="Номер группы">
-<label for="code">Код предмета</label>
-<input type="text" th:field="*{subject.id_subject}" id="code" placeholder="Код предмета">
-<label for="subj">Название дисциплины</label>
-<input type="text" th:field="*{subject.subject_name}" id="subj" placeholder="Название дисциплины">
-<label for="hours">Учебные часы</label>
-<input type="text" th:field="*{subject.study_hours}" id="hours" placeholder="Учебные часы">
-<input type="submit" value="Добавить в учебный план">
-</form>
+<p><a th:href="@{/control-group-subjects/{id}(id=${studentGroup.id_group})}" >ВЫХОД</a><br><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

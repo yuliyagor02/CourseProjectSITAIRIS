@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Выставить отметку</title>
+</head>
+<body>
+<h1>Выставление отметки</h1>
+    <form action="#" th:action="@{/marks-student-control}"  method="post">
+        <table>
+            <thead>
+            <th>Номер группы</th>
+            <th>Номер зачётки</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Дисциплина</th>
+            <th>Отметка</th>
+            </thead>
+            <tbody></tbody>
+            <tr>
+                <td th:text="${group.id_group}"></td>
+                <td th:text="${student.id_student}"></td>
+                <td th:text="${user.surname}"></td>
+                <td th:text="${user.name}"></td>
+                <td><label for="subj">Дисциплина</label>
+                    <select id="subj" name="subjectMarked">
+                        <option th:each="subject : ${subjects}"
+                                th:value="${subject.subject_name}"
+                                th:text="${subject.subject_name}"
+                        >
+                        </option>
+                    </select></td>
+                <td> <label for="mrk">Отметка</label>
+                    <select id="mrk" name="markedNumb">
+                        <option th:each="mark : ${marks}"
+                                th:value="${mark}"
+                                th:text="${mark}"
+                        >
+                        </option>
+                    </select></td>
+            </tr>
+        </table>
+
+<input type="hidden" name="id_stud" th:value="${student.id_student}">
+        <input type="submit" value="Подтвердить">
+</form>
+</body>
+</html>

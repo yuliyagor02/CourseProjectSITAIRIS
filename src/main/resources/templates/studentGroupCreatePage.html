@@ -6,18 +6,34 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Новая группа</title>
+    <link th:href="@{/styles/groupCreateStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<form action="#" th:action="@{/create-group}" th:object="${studentGroup}" method="post">
-    <label for="id_group">Номер группы</label>
-    <input type="number" th:field="*{id_group}" id="id_group" placeholder="Номер группы">
-    <label for="faculty">Название факультета</label>
-    <input type="text" th:field="*{faculty}" id="faculty" placeholder="Название факультета">
-    <label for="speciality">Название специальности</label>
-    <input type="text" th:field="*{speciality}" id="speciality" placeholder="Название специальности">
-    <label for="stage_of_education">Ступень образования</label>
-    <input type="text" th:field="*{stage_of_education}" id="stage_of_education" placeholder="Ступень образования">
-    <input type="submit" value="Добавить новую группу">
-</form>
+<h1>CampusKids - администратор</h1>
+<table>
+    <tr>
+        <td class="frm">
+            <form action="#" th:action="@{/create-group}" th:object="${studentGroup}" method="post">
+                <h2>НОВАЯ ГРУППА</h2>
+                <label for="id_group">НОМЕР ГРУППЫ</label><br>
+                <input type="text" th:field="*{id_group}" th:value="${id_group1}" id="id_group" th:placeholder="${id_group1}" readonly><br>
+                <label for="faculty">НАЗВАНИЕ ФАКУЛЬТЕТА</label><br>
+                <input type="text" th:field="*{faculty}" id="faculty" placeholder="Название факультета"><br>
+                <label for="speciality">СПЕЦИАЛЬНОСТЬ</label><br>
+                <input type="text" th:field="*{speciality}" id="speciality" placeholder="Название специальности"><br>
+                <label for="stage_of_education">СТУПЕНЬ ОБРАЗОВАНИЯ</label><br>
+                <input type="text" th:field="*{stage_of_education}" id="stage_of_education" placeholder="Ступень образования"><br>
+                <input type="submit" value="ДОБАВИТЬ" class="btn">
+                <input type="hidden" name="groupId" th:value="${id_group1}">
+            </form>
+        </td>
+        <td class="pict">
+            <img height="470px" weight="800px" th:src="@{/styles/grgr.jpeg}"/>
+        </td>
+    </tr>
+</table>
+
+<p><a th:href="@{/groups}" >ВЫХОД</a><br><br></p>
+    <h3>CampusKids</h3>
 </body>
 </html>

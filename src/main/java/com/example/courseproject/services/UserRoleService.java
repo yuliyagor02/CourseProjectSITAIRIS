@@ -34,4 +34,7 @@ public class UserRoleService {
         }
         return null;
     }
+    public void deleteUserRole(UserRole userRole){
+    userRoleRepository.delete(userRole);
+    }
 }

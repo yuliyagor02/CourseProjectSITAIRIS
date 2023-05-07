@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CampusKids - Студент</title>
+    <link th:href="@{/styles/studentFoundPageStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>CampusKids - администратор</h1>
+<h2>РЕЗУЛЬТАТЫ ПОИСКА</h2>
+<p th:if="${flag}" class="failCl">ТАКОЙ СТУДЕНТ НЕ НАЙДЕН!</p>
+<table th:unless="${flag}">
+    <thead>
+    <th>НОМЕР СТУДЕНЧЕСКОГО</th>
+    <th>ГРУППА</th>
+    <th>ФАМИЛИЯ</th>
+    <th>ИМЯ</th>
+    <th>ОТЧЕСТВО</th>
+    <th>E-MAIL</th>
+    <th>НОМЕР ТЕЛЕФОНА</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${student.id_student}"></td>
+        <td th:text="${stud_group.id_group}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.patronymic}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.phone_number}"></td>
+    </tr>
+    </tbody>
+</table>
+<p><a th:href="@{/student-search}" >НАЗАД</a><br><br></p>
+<h3>CampusKids</h3>
+</body>
+</html>

@@ -5,9 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CampusKids - Поиск Студента</title>
+    <title>CampusKids - Поиск</title>
+    <link th:href="@{/styles/studentSearchPageStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Поиск студента</h1>
+<h1>CampusKids - администратор</h1>
+<h2>ПОИСК УЧЁТНОЙ ЗАПИСИ СТУДЕНТА</h2>
+<form  th:action="@{/student-search}" method="post">
+    <label for="id_student">ВВЕДИТЕ НОМЕР СТУДЕНЧЕСКОГО:</label><br>
+    <input type="text" th:name="id_student" id="id_student" placeholder="Номер студенческого:" pattern="[0-9]{7}" title="Введите номер студенческого в формате 1234567">
+    <input type="submit" value="НАЙТИ">
+</form>
+<p><a th:href="@{/admin}">НАЗАД</a><br><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

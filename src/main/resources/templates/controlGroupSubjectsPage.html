@@ -6,20 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Учебный план</title>
+    <link th:href="@{/styles/subjectsControl.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Работа с учебным планом</h1>
+<h1>CampusKids - администратор</h1>
+<h2>РАБОТА С УЧЕБНЫМ ПЛАНОМ</h2>
 <div th:switch="${subjects}">
-    <h2 th:case="null">Учебный план для данной группы не составлен!</h2>
+    <p th:case="null" class="failCl">УЧЕБНЫЙ ПЛАН ДЛЯ ДАННОЙ ГРУППЫ НЕ БЫЛ СОСТАВЛЕН!</p>
     <div th:case="*">
-        <h2></h2>
+
         <table>
             <thead>
             <tr>
-                <th>Группа</th>
-                <th>Код предмета</th>
-                <th>Название дисциплины</th>
-                <th>Учебные часы</th>
+                <th>ГРУППА</th>
+                <th>КОД ПРЕДМЕТА</th>
+                <th>НАЗВАНИЕ ДИСЦИПЛИНЫ</th>
+                <th>УЧЕБНЫЕ ЧАСЫ</th>
             </tr>
             </thead>
             <tbody>
@@ -34,8 +36,10 @@
             </tbody>
         </table>
     </div>
-    <p><a th:href="@{/create-subject/{id_group}(id_group=${id_group})}">Дисциплина +</a></p>
+    <p><a th:href="@{/create-subject/{id_group}(id_group=${id_group})}" class="btn">ДОБАВИТЬ</a></p>
 </div>
+<p><a th:href="@{/find-group-subjects}" class="btn">НАЗАД</a><br><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>
 

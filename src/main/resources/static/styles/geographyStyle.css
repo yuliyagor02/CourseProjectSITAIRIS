@@ -1,0 +1,63 @@
+body{
+    /*background: linear-gradient(royalblue,cornflowerblue) fixed;*/
+    background-image: url("wallp2.jpg");
+}
+h1{
+    font-family: Verdana;
+    background-color: #2c2caf;
+    color:white;
+    text-align: center;
+    margin-top:10px;
+    font-size: 55px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+h2{
+    color:#2c2caf;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 25px;
+}
+h3{
+    background-color: #2c2caf;
+    color:white;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 35px;
+    border-radius: 15px;
+    margin-top: 200px;
+}
+table{
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 15px;
+}
+/*td{*/
+/*    padding-left: 160px;*/
+/*}*/
+th{
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    paddiing-left:200px;
+    border-radius: 15px;
+    margin-bottom:12px;
+}
+p{
+    background-color: white;
+    border-radius: 20px;
+    border: 3px solid #2c2caf;
+    height: 43px;
+    width:220px;
+    font-size: 20px;
+    text-align: center;
+    padding-top:10px;
+    color:  #2c2caf;
+    margin-left: 650px;
+}
+p:hover{
+    background-color: #2c2caf;
+
+}
+a:hover{
+    color:white;
+}

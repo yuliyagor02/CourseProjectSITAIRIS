@@ -36,6 +36,9 @@ public class StudentService {
         }
         return null;
     }
+    public List<Student> findAll(){
+    return studentRepository.findAll();
+    }
     public List<Student> findAllStudentsOfTheGroup(StudentGroup group){
     Long group_id = group.getId_group();
     List<Student> allStudents=studentRepository.findAll(); //все иностранные студенты
@@ -48,17 +51,17 @@ public class StudentService {
         return studentsOfTheGroup;
     }
     public int[] countStudentsByCountries(String [] countries){
-    List<Student> allStudents=studentRepository.findAll();
-    List<Student> students1=new ArrayList<>();
-    List<Student> students2=new ArrayList<>();
-    List<Student> students3=new ArrayList<>();
-    List<Student> students4=new ArrayList<>();
-    List<Student> students5=new ArrayList<>();
-    int[] array=new int[5];
+        List<Student> allStudents=studentRepository.findAll();
+        List<Student> students1=new ArrayList<>();
+        List<Student> students2=new ArrayList<>();
+        List<Student> students3=new ArrayList<>();
+        List<Student> students4=new ArrayList<>();
+        List<Student> students5=new ArrayList<>();
+        int[] array=new int[5];
         for (Student student: allStudents) {
-if(student.getHome_country().equals(countries[0])){
-    students1.add(student);
-}
+            if(student.getHome_country().equals(countries[0])){
+                students1.add(student);
+            }
         }
         for (Student student: allStudents) {
             if(student.getHome_country().equals(countries[1])){

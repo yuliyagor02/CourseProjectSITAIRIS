@@ -1,7 +1,9 @@
 package com.example.courseproject.services;
 
+import com.example.courseproject.models.Student;
 import com.example.courseproject.models.StudentGroup;
 import com.example.courseproject.repositories.StudentGroupRepository;
+import com.example.courseproject.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,6 +15,7 @@ import java.util.List;
 @Service
 public class StudentGroupService {
     private final StudentGroupRepository studentGroupRepository;
+
     private static final String BASE_PACKAGE="com.example.courseproject";
 @Autowired
     public StudentGroupService(StudentGroupRepository studentGroupRepository) {
@@ -49,4 +52,45 @@ public class StudentGroupService {
     return quantityOfStudents;
     }
 
+    public int[] countStudentsByFaculties(String [] faculties){
+        List<StudentGroup> allGroups=studentGroupRepository.findAll();
+        List<StudentGroup> groups1=new ArrayList<>();
+        List<StudentGroup> groups2=new ArrayList<>();
+        List<StudentGroup> groups3=new ArrayList<>();
+        List<StudentGroup> groups4=new ArrayList<>();
+        List<StudentGroup> groups5=new ArrayList<>();
+
+        int[] array=new int[5];
+        for (StudentGroup stGroup: allGroups) {
+            if(stGroup.getFaculty().equals(faculties[0])){
+                groups1.add(stGroup);
+                array[0]+=stGroup.getStudents().size();
+            }
+        }
+        for (StudentGroup stGroup: allGroups) {
+            if(stGroup.getFaculty().equals(faculties[1])){
+                groups2.add(stGroup);
+                array[1]+=stGroup.getStudents().size();
+            }
+        }
+        for (StudentGroup stGroup: allGroups) {
+            if(stGroup.getFaculty().equals(faculties[2])){
+                groups3.add(stGroup);
+                array[2]+=stGroup.getStudents().size();
+            }
+        }
+        for (StudentGroup stGroup: allGroups) {
+            if(stGroup.getFaculty().equals(faculties[3])){
+                groups4.add(stGroup);
+                array[3]+=stGroup.getStudents().size();
+            }
+        }
+        for (StudentGroup stGroup: allGroups) {
+            if(stGroup.getFaculty().equals(faculties[4])){
+                groups5.add(stGroup);
+                array[4]+=stGroup.getStudents().size();
+            }
+        }
+        return array;
+    }
 }

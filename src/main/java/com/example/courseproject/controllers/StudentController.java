@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,17 +24,25 @@ public class StudentController {
     private final UserRoleService userRoleService;
     private final RoleService roleService;
     private final StudentGroupService studentGroupService;
+    private final StatementService statementService;
 
 @Autowired
-    public StudentController(StudentService studentService, UserService userService, UserRoleService userRoleService, RoleService roleService, StudentGroupService studentGroupService) {
+    public StudentController(StudentService studentService, UserService userService, UserRoleService userRoleService, RoleService roleService, StudentGroupService studentGroupService,StatementService statementService) {
         this.studentService = studentService;
         this.userService = userService;
         this.userRoleService = userRoleService;
         this.roleService=roleService;
         this.studentGroupService=studentGroupService;
+        this.statementService=statementService;
     }
     @GetMapping("/student-registration")
-    public String getStudentRegistrationPage(Student student, User user, StudentGroup studentGroup){
+//    Student student, User user, StudentGroup studentGroup
+    public String getStudentRegistrationPage(Model model,Student student, User user, StudentGroup studentGroup){
+    List<StudentGroup> allGroups=studentGroupService.findAllStudentGroups();
+    model.addAttribute("allGroups",allGroups);
+    List<Student> students=studentService.findAll();
+    Long id_stud=students.get(students.size()-1).getId_student()+1; //номер зачётной книжки=логин
+        model.addAttribute("id_stud",id_stud);
     return "studentRegistrationPage";
     }
 
@@ -73,9 +82,25 @@ public class StudentController {
         return "studentHealthInsurancePage";
     }
     @GetMapping("/student-statements/{id}")
-    public String getStudentStatementsPage(@PathVariable("id") Long id,Model model){
+    public String getStudentStatementsPage(@PathVariable("id") Long id, Model model, Statement statement){
         model.addAttribute("id",id);
+        Student student = studentService.findStudentById(id);
+        List<Statement> statements=student.getStatements();
+        model.addAttribute("statements",statements);
         return "studentStatementsPage";
+    }
+    @PostMapping("/student-statements")
+    public String sendStudentStatementsForm(@RequestParam(name="id") String id,Model model,Statement statement){
+//        model.addAttribute("id",id);
+        Long id_stud=Long.parseLong(id);
+        byte a =0;
+        System.out.println("id "+id);
+        Student student = studentService.findStudentById(id_stud);
+        statement.setStudent(student);
+        statement.setIsPrinted(a);
+        statementService.saveOrUpdateStatement(statement);
+
+        return "redirect:/student-statements/"+Long.toString(id_stud);
     }
 
     @GetMapping("/university")
@@ -95,13 +120,18 @@ public class StudentController {
         return "studentMainPage";
     }
     @PostMapping("/student-registration")
-    public String sendStudentRegistrationForm(Student student, User user, UserRole userRole, StudentGroup studentGroup){
+    public String sendStudentRegistrationForm(@RequestParam(name="studentId")Long id_st,@RequestParam(name="allGroups")String id, Student student, User user, UserRole userRole, StudentGroup studentGroup){
+Long id_gr=Long.parseLong(id);
+    student.setId_student(id_st);
+    user.setLogin(Long.toString(id_st));
     userService.saveUser(user);
     student.setUser(user);
     userRole.setUser(user);
     Role role = roleService.findRoleById(2L);
-    StudentGroup stGr = studentGroupService.findStudentGroupById(studentGroup.getId_group());
+    StudentGroup stGr = studentGroupService.findStudentGroupById(id_gr);//studentGroup.getId_group()
     student.setGroup(stGr);
+    byte a = 1;
+    student.setIs_health_insurance(a);
     studentService.saveStudent(student);
     userRole.setRole(role);
     userRoleService.saveUserRole(userRole);
@@ -131,6 +161,43 @@ public class StudentController {
 
     return "redirect:/student/"+Long.toString(student1.getId_student());
     }
+    @GetMapping("/student-search/{id}")
+    public String getStudentFoundPage(@PathVariable("id") Long id, Model model){
+    model.addAttribute("flag",0);
+    if(id==0) model.addAttribute("flag",1);
+    else{
+        Student student=studentService.findStudentById(id);
+        User user = student.getUser();
+        StudentGroup studentGroup=student.getGroup();
+        model.addAttribute("student",student);
+        model.addAttribute("user",user);
+        model.addAttribute("stud_group",studentGroup);
+    }
+        return "studentFoundPage";
+    }
+    @GetMapping("/student-search")
+    public String getStudentSearchPage(){
+        return "studentSearchPage";
+    }
+    @PostMapping("/student-search")
+    public String sendStudentSearchForm(@RequestParam(name="id_student") String id,Model model){
+    Long id_stud=Long.parseLong(id);
+    Student student = studentService.findStudentById(id_stud);
+    User user = new User();
+    StudentGroup studentGroup=new StudentGroup();
+    if(student==null) {
+        id="0";
+    }
+    else{
+        user=student.getUser();
+        studentGroup=student.getGroup();
+        System.out.println("id группы "+studentGroup.getId_group());
+        model.addAttribute("student",student);
+        model.addAttribute("user",user);
+        model.addAttribute("stud_group",studentGroup);
+    }
 
+        return "redirect:/student-search/"+id;
+    }
 
 }

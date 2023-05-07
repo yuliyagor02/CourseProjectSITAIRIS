@@ -6,20 +6,47 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Администратор</title>
+    <link th:href="@{/styles/adminMainPageStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Hi, admin!</h1>
-<a th:href="@{/student-search}">Профайл студента (поиск)</a><br><br>
-<!--<a th:href="@{/student-delete}">Удалить аккаунт студента</a><br><br>-->
-<a th:href="@{/groups}">Студенческие группы</a><br><br>
-<a th:href="@{/student-send-message}">Сообщение студенту</a><br><br>
-<a th:href="@{/student-check-statements}">Ведомостички</a><br><br>
-<a th:href="@{/find-group-subjects}">Учебный план</a><br><br>
+<h1>CampusKids - администратор</h1>
+<table>
+    <tr>
+        <td>
+           <a th:href="@{/student-search}">ПОИСК СТУДЕНТА</a> <br>
+            <!--<a th:href="@{/student-delete}">Удалить аккаунт студента</a><br><br>-->
+            <a th:href="@{/groups}">СТУДЕНЧЕСКИЕ ГРУППЫ</a><br>
+            <a th:href="@{/student-send-message}">СОЗДАТЬ ОПОВЕЩЕНИЕ</a><br>
+<!--            <a th:href="@{/student-check-statements}">ВЕДОМОСТИЧКИ</a><br>-->
+            <a th:href="@{/find-group-subjects}">УЧЕБНЫЙ ПЛАН</a><br>
+        </td>
+        <td class="sectd">
+            <a th:href="@{/control-teachers}">ПРЕПОДАВАТЕЛИ</a><br>
+            <a th:href="@{/students-geography}">СТУДЕНТЫ ПО СТРАНАМ</a><br>
+<!--            <a th:href="@{/stages}">СТУПЕНИ ПО ЧИСЛУ СТУДЕНТОВ</a><br>-->
+            <a th:href="@{/faculties-popularity}">РЕЙТИНГ ФАКУЛЬТЕТОВ</a><br>
+            <a th:href="@{/student-check-statements}">ВЕДОМОСТИЧКИ</a><br>
+        </td>
+    </tr>
+    <tr>
+<!--        <td rowspan="2">-->
+<!--            <a th:href="@{/student-check-statements}">ВЕДОМОСТИЧКИ</a><br>-->
+<!--        </td>-->
+    </tr>
+</table>
+<!--<a th:href="@{/student-search}">Профайл студента (поиск)</a><br><br>-->
+<!--&lt;!&ndash;<a th:href="@{/student-delete}">Удалить аккаунт студента</a><br><br>&ndash;&gt;-->
+<!--<a th:href="@{/groups}">Студенческие группы</a><br><br>-->
+<!--<a th:href="@{/student-send-message}">Сообщение студенту</a><br><br>-->
+<!--<a th:href="@{/student-check-statements}">Ведомостички</a><br><br>-->
+<!--<a th:href="@{/find-group-subjects}">Учебный план</a><br><br>-->
 <!--<a th:href="@{/student-messages/{id}(id=${id})}">Студенты по группам (фильтрация)</a><br><br>-->
-<a th:href="@{/control-teachers}">Преподаватели</a><br><br>
-<a th:href="@{/students-geography}">География иностранных студентов</a><br><br>
-<a th:href="@{/stages}">Ступени образования по количеству иностранных студентов</a><br><br>
-<a th:href="@{/faculties-popularity}">Рейтинг факультетов</a><br><br>
-<a th:href="@{/sign-in}">Выйти</a><br><br>
+<!--<a th:href="@{/control-teachers}">Преподаватели</a><br><br>-->
+<!--<a th:href="@{/students-geography}">География иностранных студентов</a><br><br>-->
+<!--<a th:href="@{/stages}">Ступени образования по количеству иностранных студентов</a><br><br>-->
+<!--<a th:href="@{/faculties-popularity}">Рейтинг факультетов</a><br><br>-->
+<!--<a th:href="@{/sign-in}">Выйти</a><br><br>-->
+<p><a th:href="@{/sign-in}">ВЫХОД</a><br><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

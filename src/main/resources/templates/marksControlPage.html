@@ -9,5 +9,33 @@
 </head>
 <body>
 <h1>Работа с отметками</h1>
+<form action="#" th:action="@{/marks-control}"  method="post">
+    <label for="id_gr">Номер группы</label>
+    <select id="id_gr" name="allGroups">
+        <option th:each="allGroups : ${allGroups}"
+                th:value="${allGroups.id_group}"
+                th:text="${allGroups.id_group}"
+        >
+
+        </option>
+    </select>
+<!--    <div th:if="${students.size()==0}">-->
+<!--        <label for="id_student">Номер зачётки</label>-->
+<!--        <select id="id_student">-->
+<!--            <option th:each="students : ${students}">${students.id_student}</option>-->
+<!--        </select>-->
+<!--        &lt;!&ndash;    <input type="number"  th:field="*{student.id_student}" id="id_student" placeholder="Номер зачётной книжки">&ndash;&gt;-->
+<!--        <label for="subj_name">Номер зачётки</label>-->
+<!--        <select id="subj_name">-->
+<!--            <option th:each="subjects : ${subjects}">${subjects.academic_discipline}</option>-->
+<!--        </select>-->
+<!--        &lt;!&ndash;    <input type="number"  th:field="*{student.id_student}" id="discipl" placeholder="Дисциплина">&ndash;&gt;-->
+<!--        <label for="mark">Отметка</label>-->
+<!--        <select id="mark">-->
+<!--            <option th:each="marks : ${marks}">${marks}</option>-->
+<!--        </select> -->
+<!--    </div>-->
+    <input type="submit" value="Показать">
+</form>
 </body>
 </html>

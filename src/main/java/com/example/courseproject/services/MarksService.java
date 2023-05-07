@@ -34,6 +34,29 @@ public List<Marks> findMarksByStudentId(Long id){
     }
     return marksOfStudent;
 }
+    public List<Marks> findMarksBySubject(Subject subject){
+    Long id=subject.getId_subject();
+        List<Marks> marks=marksRepository.findAll();
+        List<Marks> marksOfSubject=new ArrayList<Marks>();
+        for(Marks mark:marks){
+            if(mark.getSubject().getId_subject()==id){
+                marksOfSubject.add(mark);
+            }
+        }
+        return  marksOfSubject;
+    }
+public Marks saveMark(Marks mark){
+    return marksRepository.save(mark);
+}
+public void deleteMarksOfSubject(Subject subject){
+    Long id_subject= subject.getId_subject();
+    List<Marks> marks=marksRepository.findAll();
+    for (Marks mark:marks) {
+        if(mark.getSubject().getId_subject()==id_subject){
+            marksRepository.deleteById(mark.getId_mark());
+        }
+    }
+}
 
 //public List<String> findMarksBySubjectNames(List<Subject> subjects, List<Marks> marks){
 //

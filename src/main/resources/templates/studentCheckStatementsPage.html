@@ -9,5 +9,29 @@
 </head>
 <body>
 <h1>Распечатать ведомостички</h1>
+<table>
+    <thead>
+    <th>Номер документа</th>
+    <th>Дисциплина</th>
+    <th>Преподаватель</th>
+    <th>Дата пропуска</th>
+    <th>Обработка</th>
+    </thead>
+    <tbody>
+    <tr th:each="statements:${stats}">
+        <td  th:text="${statements.id_statement}"></td>
+        <td th:text="${statements.academic_discipline}"></td>
+        <td th:text="${statements.teacher_fio}"></td>
+        <td th:text="${statements.missing_class_date}"></td>
+<!--        <td th:if="${statements.isPrinted==0}">В обработке</td>-->
+        <td>
+            <form action="#" th:action="@{/student-check-statements}" method="post">
+                <input type="submit" value="Распечатать">
+                <input type="hidden" name="id" th:value="${statements.id_statement}">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

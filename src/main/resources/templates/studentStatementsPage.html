@@ -9,5 +9,39 @@
 </head>
 <body>
 <h1>Ведомостички студента</h1>
+<form action="#" th:action="@{/student-statements}"  method="post">
+    <label for="subj">Дисциплина</label>
+
+    <input type="hidden" name="id" th:value="${id}">
+    <input type="text" th:field="*{statement.academic_discipline}" id="subj" placeholder="Дисциплина">
+    <label for="stat">Тип ведомостички</label>
+    <input type="text" th:field="*{statement.statement_type}" id="stat" placeholder="Тип">
+    <label for="fio">ФИО преподавателя</label>
+    <input type="text" th:field="*{statement.teacher_fio}" id="fio" placeholder="Преподаватель">
+    <label for="reason">Причина пропуска</label>
+    <input type="text" th:field="*{statement.reason}" id="reason" placeholder="Причина">
+    <label for="date">Дата пропуска</label>
+    <input type="text" th:field="*{statement.missing_class_date}" id="date" placeholder="Дата пропуска">
+    <input type="submit" field="Заказать ведомостичку">
+</form>
+<table>
+    <thead>
+    <th>Номер документа</th>
+    <th>Дисциплина</th>
+    <th>Преподаватель</th>
+    <th>Дата пропуска</th>
+    <th>Статус</th>
+    </thead>
+    <tbody>
+    <tr th:each="statements:${statements}">
+        <td th:text="${statements.id_statement}"></td>
+        <td th:text="${statements.academic_discipline}"></td>
+        <td th:text="${statements.teacher_fio}"></td>
+        <td th:text="${statements.missing_class_date}"></td>
+        <td th:if="${statements.isPrinted==0}">В обработке</td>
+        <td th:if="${statements.isPrinted==1}">Напечатано</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

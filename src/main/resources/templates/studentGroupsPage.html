@@ -6,12 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Группы</title>
+    <link th:href="@{/styles/groupsStyle.css}" rel="stylesheet"/>
 </head>
 <body>
+<h1>CampusKids - администратор</h1>
 <div th:switch="${studentGroups}">
-    <h2 th:case="null">Группы не найдены!</h2>
+    <p th:case="null" class="failCl">Группы не найдены!</p>
     <div th:case="*">
-        <h2>Группы иностранных студентов</h2>
+        <h2>ГРУППЫ ИНОСТРАННЫХ СТУДЕНТОВ</h2>
         <table>
             <thead>
             <tr>
@@ -28,12 +30,14 @@
                 <td th:text="${studentGroups.speciality}"></td>
                 <td th:text="${studentGroups.stage_of_education}"></td>
                 <td><a th:href="@{update-group/{id}(id=${studentGroups.id_group})}">Изменить</a></td>
-                <td><a th:href="@{delete-group/{id}(id=${studentGroups.id_group})}">Удалить</a></td>
+<!--                <td><a th:href="@{delete-group/{id}(id=${studentGroups.id_group})}">Удалить</a></td>-->
             </tr>
             </tbody>
         </table>
     </div>
-    <p><a href="/create-group">Создать новую группу</a></p>
+    <p><a href="/create-group" class="newGr">ДОБАВИТЬ НОВУЮ ГРУППУ</a></p>
+    <p><a th:href="@{/admin}" class="newGr">ВЫХОД</a><br><br></p>
 </div>
+<!--<h3>CampusKids</h3>-->
 </body>
 </html>

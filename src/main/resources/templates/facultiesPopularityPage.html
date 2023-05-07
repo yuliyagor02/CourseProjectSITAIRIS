@@ -6,8 +6,64 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Факультеты</title>
+    <link th:href="@{/styles/facultyPopularity.css}" rel="stylesheet"/>
 </head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+        var fac1=[[${fac1}]];
+        var fac2=[[${fac2}]];
+        var fac3=[[${fac3}]];
+        var fac4=[[${fac4}]];
+        var fac5=[[${fac5}]];
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Факультет');
+        data.addColumn('number', 'Кол-во студентов');
+        data.addRows([
+            ['ИЭФ', fac1],
+            ['ФИБ', fac2],
+            ['КСИС', fac3],
+            ['ФРЭ', fac4],
+            ['ФИТУ', fac5]
+        ]);
+
+        // Set chart options
+        var barchart_options = {
+            // 'title':'Факультеты по популярности',
+            'width':1520,
+            'height':520};
+
+        // Instantiate and draw our chart, passing in some options.
+        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+        barchart.draw(data, barchart_options);
+    }
+</script>
+<link th:href="@{/styles/facultyPopularityStyle.css}" rel="stylesheet"/>
 <body>
-<h1>Популярность факультетов</h1>
+<!--<h1>Популярность факультетов</h1>-->
+<!--<div id="barchart_div" style="border: 1px solid #ccc"></div>-->
+
+<table>
+    <thead>
+    <th rowspan="2"><h2>ПОПУЛЯРНОСТЬ ФАКУЛЬТЕТОВ</h2></th>
+    </thead>
+    <tbody>
+    <td>
+        <div id="barchart_div"></div>
+    </td>
+    </tbody>
+</table>
+<p><a th:href="@{/admin}">НАЗАД</a></p>
+
 </body>
 </html>

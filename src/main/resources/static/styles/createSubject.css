@@ -1,0 +1,79 @@
+body{
+    background-image: url("wallp2.jpg");
+}
+h1,h3{
+    background-color: #2c2caf;
+    width: 100%;
+    text-align: center;
+    font-family: Verdana;
+    color:white;
+    border-radius: 15px;
+}
+h2{
+    text-align: center;
+    font-family: Verdana;
+    color:#2c2caf;
+    font-size: 20px;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+h1{
+    margin-top:10px;
+    font-size: 55px;
+}
+h3{
+    margin-top:8px;
+    font-size: 35px;
+}
+table{
+    margin-left: 60px;
+}
+.frm{
+    align-items: center;
+    width:500px;
+    height: 470px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 25px;
+    color:#2c2caf;
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 50px;
+}
+form{
+    padding: 35px;
+}
+p{
+    background-color: white;
+    text-align: center;
+    width:100px;
+    border-radius: 10px;
+    height: 30px;
+    border: 3px solid #2c2caf;
+    margin-left: 700px;
+}
+a{
+    text-decoration: none;
+    color:#2c2caf;
+    font-size: 25px;
+    font-weight: bold;
+}
+input{
+    align-self: center;
+    margin:7px;
+    height: 35px;
+    border-radius: 15px;
+    color:#2c2caf;
+    font-family: Verdana;
+    font-weight: bold;
+}
+.pict{
+    padding-right: 160px;
+}
+img{
+    border-radius: 25px;
+}
+.btn{
+    margin-left: 150px;
+}
