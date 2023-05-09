@@ -1,25 +1,18 @@
-<!--<!doctype html>-->
-<!--<html lang="ru">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>CampusKids - Университет</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Видео про универ</h1>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>CampusKids - Университет</title>
+    <link th:href="@{/styles/university.css}" rel="stylesheet"/>
 </head>
 <body>
+<h1>CampusKid</h1>
+<div class="wallpaper">
+    <div id="player"></div>
+    <p><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br></p>
+</div>
 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-<div id="player"></div>
+
 
 <script>
 
@@ -64,5 +57,6 @@
         player.stopVideo();
     }
 </script>
+<h3>CampusKids</h3>
 </body>
 </html>

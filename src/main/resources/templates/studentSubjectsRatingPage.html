@@ -6,18 +6,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Рейтинг дисциплин</title>
+    <link th:href="@{/styles/subjectsRating.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Рейтинг дисциплин</h1>
-<div th:switch="${marks}">
-    <h2 th:case="null">Оценки не найдены!</h2>
+<h1>CampusKid</h1>
+<div th:switch="${marks}" class="wallpaper">
+    <h2 th:case="null">ОЦЕНКИ НЕ НАЙДЕНЫ!</h2>
     <div th:case="*">
-        <table>
+        <h2>РЕЙТИНГ МОИХ ДИСЦИПЛИН</h2>
+        <table class="tbl">
             <tr>
                 <td><table>
                     <thead>
                     <tr>
-                        <th>Название предмета</th>
+                        <th>НАЗВАНИЕ ПРЕДМЕТА</th>
 
                     </tr>
                     </thead>
@@ -33,7 +35,7 @@
                 <td> <table>
                     <thead>
                     <tr>
-                        <th>Оценки</th>
+                        <th>СРЕДНЯЯ ОТМЕТКА</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,6 +54,7 @@
     </div>
     <p><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br></p>
 </div>
+<h3>CampusKids</h3>
 </body>
 </html>
 

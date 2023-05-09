@@ -6,17 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Мои сообщения</title>
+    <link th:href="@{/styles/messages.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Сообщения студента</h1>
+<h1>CampusKid</h1>
+
 <div th:switch="${messages}">
-    <h2 th:case="null">История сообщений пуста!</h2>
+    <h2 th:case="null">НЕТ НОВЫХ ОПОВЕЩЕНИЙ!</h2>
     <div th:case="*">
-        <h2>Мои сообщения</h2>
-        <table th:each="mess:${messages}">
+        <h2>МОИ СООБЩЕНИЯ</h2>
+        <table th:each="mess:${messages}" th:if="${mess.isRead==0}">
             <thead>
-            <th>Тема:</th>
-            <th>Отправлено:</th>
+            <th>ТЕМА:</th>
+            <th>ОТПРАВЛЕНО:</th>
             </thead>
             <tr>
                 <td th:text="${mess.theme}"></td>
@@ -26,17 +28,17 @@
                 <td th:text="${mess.message_content}"></td>
                 <td th:if="${mess.isRead==0}">
                     <form action="#" th:action="@{/update-messages-status}" method="post">
-<!--                    <a th:if="${mess.isRead==0}" th:href="@{student-messages/{id}(id=${id})}">Прочитано</a>-->
-                        <input type="submit" value="Прочитано">
+                        <input type="submit" value="ПРОЧИТАНО">
                         <input type="hidden" name="id" th:value="${id}">
                         <input type="hidden" name="id_mess" th:value="${mess.id_message}">
                     </form>
                 </td>
-                <td th:unless="${mess.isRead==1}"></td>
+                <td th:unless="${mess.isRead==0}"></td>
             </tr>
         </table>
     </div>
-    <p><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br></p>
+    <p class="btn"><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br></p>
 </div>
+<h3>CampusKids</h3>
 </body>
 </html>

@@ -6,16 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Ведомостички</title>
+    <link th:href="@{/styles/checkStatements.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Распечатать ведомостички</h1>
+<h1>CampusKids - администратор</h1>
+<div th:switch="${stats}">
+<p th:case="null" class="failCl">НЕТ НЕОБРАБОТАННЫХ ВЕДОМОСТИЧЕК!</p>
+<div th:case="*">
+<h2>РАСПЕЧАТАТЬ ВЕДОМОСТИЧКИ</h2>
 <table>
     <thead>
-    <th>Номер документа</th>
-    <th>Дисциплина</th>
-    <th>Преподаватель</th>
-    <th>Дата пропуска</th>
-    <th>Обработка</th>
+    <tr>
+        <th>НОМЕР ДОКУМЕНТА</th>
+        <th>ДИСЦИПЛИНА</th>
+        <th>ПРЕПОДАВАТЕЛЬ</th>
+        <th>ДАТА ПРОПУСКА</th>
+        <th>ОБРАБОТКА</th>
+    </tr>
     </thead>
     <tbody>
     <tr th:each="statements:${stats}">
@@ -33,5 +40,9 @@
     </tr>
     </tbody>
 </table>
+</div>
+<p><a th:href="@{/admin}" class="newGr">ВЫХОД</a><br><br></p>
+</div>
+<h3>CampusKids</h3>
 </body>
 </html>

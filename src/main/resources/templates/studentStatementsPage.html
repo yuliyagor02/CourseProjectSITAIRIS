@@ -6,42 +6,66 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Ведомостички</title>
+    <link th:href="@{/styles/studentStatements.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Ведомостички студента</h1>
-<form action="#" th:action="@{/student-statements}"  method="post">
-    <label for="subj">Дисциплина</label>
-
-    <input type="hidden" name="id" th:value="${id}">
-    <input type="text" th:field="*{statement.academic_discipline}" id="subj" placeholder="Дисциплина">
-    <label for="stat">Тип ведомостички</label>
-    <input type="text" th:field="*{statement.statement_type}" id="stat" placeholder="Тип">
-    <label for="fio">ФИО преподавателя</label>
-    <input type="text" th:field="*{statement.teacher_fio}" id="fio" placeholder="Преподаватель">
-    <label for="reason">Причина пропуска</label>
-    <input type="text" th:field="*{statement.reason}" id="reason" placeholder="Причина">
-    <label for="date">Дата пропуска</label>
-    <input type="text" th:field="*{statement.missing_class_date}" id="date" placeholder="Дата пропуска">
-    <input type="submit" field="Заказать ведомостичку">
-</form>
-<table>
+<h1>CampusKid</h1>
+<table class="main">
     <thead>
-    <th>Номер документа</th>
-    <th>Дисциплина</th>
-    <th>Преподаватель</th>
-    <th>Дата пропуска</th>
-    <th>Статус</th>
+    <tr class="l">
+        <th>
+            ЗАКАЗАТЬ ВЕДОМОСТИЧКУ
+        </th>
+        <th>
+           МОИ ВЕДОМОСТИЧКИ
+        </th>
+    </tr>
     </thead>
     <tbody>
-    <tr th:each="statements:${statements}">
-        <td th:text="${statements.id_statement}"></td>
-        <td th:text="${statements.academic_discipline}"></td>
-        <td th:text="${statements.teacher_fio}"></td>
-        <td th:text="${statements.missing_class_date}"></td>
-        <td th:if="${statements.isPrinted==0}">В обработке</td>
-        <td th:if="${statements.isPrinted==1}">Напечатано</td>
+    <tr>
+        <td>
+            <form action="#" th:action="@{/student-statements}"  method="post">
+                <label for="subj">ДИСЦИПЛИНА</label><br>
+
+                <input type="hidden" name="id" th:value="${id}">
+                <input type="text" th:field="*{statement.academic_discipline}" id="subj" placeholder="Дисциплина"required><br>
+                <label for="stat">ТИП ВЕДОМОСТИЧКИ</label><br>
+                <input type="text" th:field="*{statement.statement_type}" id="stat" placeholder="Тип" required><br>
+                <label for="fio">ПРЕПОДАВАТЕЛЬ</label><br>
+                <input type="text" th:field="*{statement.teacher_fio}" id="fio" placeholder="Преподаватель" required><br>
+                <label for="reason">ПРИЧИНА ПРОПУСКА</label><br>
+                <input type="text" th:field="*{statement.reason}" id="reason" placeholder="Причина" required><br>
+                <label for="date">ДАТА ПРОПУСКА</label><br>
+                <input type="date" th:field="*{statement.missing_class_date}" id="date" placeholder="Дата пропуска"required><br>
+                <input type="submit" class="button1" value="ЗАКАЗАТЬ"><br>
+            </form>
+        </td>
+        <td class="just">
+            <table class="smallTbl">
+                <thead >
+                <th>НОМЕР ДОКУМЕНТА</th>
+                <th>ДИСЦИПЛИНА</th>
+                <th>ПРЕПОДАВАТЕЛЬ</th>
+                <th>ДАТА ПРОПУСКА</th>
+                <th>СТАТУС</th>
+                </thead>
+                <tbody>
+                <tr th:each="statements:${statements}">
+                    <td th:text="${statements.id_statement}"></td>
+                    <td th:text="${statements.academic_discipline}"></td>
+                    <td th:text="${statements.teacher_fio}"></td>
+                    <td th:text="${statements.missing_class_date}"></td>
+                    <td th:if="${statements.isPrinted==0}">В ОБРАБОТКЕ</td>
+                    <td th:if="${statements.isPrinted==1}">НАПЕЧАТАНО</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
     </tr>
     </tbody>
+
 </table>
+<p class="btn"><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

@@ -6,15 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - МедСтраховка</title>
+    <link th:href="@{/styles/healthStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Медицинская страховка</h1>
-<h3>Сегодняшняя дата: </h3>
-<p th:text="${actual_date}"></p>
-<h3>Окончание срока действия медицинской страховки: </h3>
-<p th:text="${insurance_validity}"></p>
-<h3>Осталось дней: </h3>
-<p th:text="${days_left}"></p>
-<a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br>
+<h1>CampusKid</h1>
+<table class="main">
+    <tr>
+        <td th:class="${days_left<1} ?'cl2':'cl'">
+            <h4>СЕГОДНЯШНЯЯ ДАТА: </h4>
+            <p th:text="${actual_date}"></p>
+            <h4>ОКОНЧАНИЕ СРОКА ДЕЙСТВИЯ МЕДИЦИНСКОЙ СТРАХОВКИ: </h4>
+            <p th:text="${insurance_validity}"></p>
+            <h4>ОСТАЛОСЬ ДНЕЙ: </h4>
+            <p th:text="${days_left}"></p>
+        </td>
+        <td>
+            <img height="430px" weight="750px" th:src="@{/styles/health2.png}"/>
+        </td>
+
+    </tr>
+</table>
+
+<p class="btn"><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

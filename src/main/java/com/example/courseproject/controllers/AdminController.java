@@ -44,6 +44,7 @@ public class AdminController {
                 unprintedStats.add(statement);
         }
         System.out.println("unprinted"+unprintedStats.size());
+        if(unprintedStats.size()==0) unprintedStats=null;
         model.addAttribute("stats",unprintedStats);
     return "studentCheckStatementsPage";
     }

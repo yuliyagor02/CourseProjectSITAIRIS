@@ -31,18 +31,30 @@ var thirdSt=[[${third}]];
             ]);
 
             // Set chart options
-            var options = {'title':'Ступени образования по кол-ву студентов',
-                'width':400,
-                'height':300};
+            var options = {'title':'Ступени образования по количеству иностранных студентов'
+                // 'width':800,
+                // 'height':600
+                };
 
             // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
     </script>
+    <link th:href="@{/styles/stages.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>География студентов</h1>
-<div id="chart_div"></div>
+
+
+<table>
+    <thead>
+    <th rowspan="2"><h2>НА КАКИХ СТУПЕНЯХ ОБРАЗОВАНИЯ БОЛЬШЕ ИНОСТРАНЦЕВ?</h2></th>
+    </thead>
+    <tbody>
+    <td><div id="chart_div" style="width: 100%; height: 550px;"></div></td>
+
+    </tbody>
+</table>
+<p><a th:href="@{/sign-in}">НАЗАД</a></p>
 </body>
 </html>

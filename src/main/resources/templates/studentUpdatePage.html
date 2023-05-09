@@ -6,22 +6,34 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Студент</title>
+    <link th:href="@{/styles/skillsStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Редактирование студента</h1>
-<form action="#" th:action="@{/update-student}"  method="post">
-<!--    th:object="${student}"-->
-    <p th:text="${student.id_student}"></p>
-    <label for="hobbies">Хобби</label>
-    <input type="text" th:field="*{student.hobbies}" id="hobbies" placeholder="Хобби">
-    <label for="skills">Навыки</label>
-    <input type="text" th:field="*{student.skills}" id="skills" placeholder="Навыки">
-<!--    <label for="group">Номер группы</label>-->
-<!--    <input type="hidden" th:field="*{studentGroup.id_group}" id="group" placeholder="Группа">-->
-<!--    <label for="password">Пароль</label>-->
-<!--    <input type="password" th:field="*{password}" id="password" placeholder="Пароль">-->
-    <input name="id_stud" type="hidden" th:value="${student.id_student}">
-    <input type="submit" value="Обновить данные">
-</form>
+<h1>CampusKid</h1>
+<table class="main">
+    <tr>
+        <td>
+            <img height="430px" weight="750px" th:src="@{/styles/stud1.png}"/>
+        </td>
+        <td class="menu">
+            <form action="#" th:action="@{/update-student}"  method="post">
+            <!--    th:object="${student}"-->
+<!--            <p th:text="${student.id_student}"></p>-->
+            <label for="hobbies">ХОББИ</label><br>
+            <input type="text" th:field="*{student.hobbies}" id="hobbies" placeholder="Хобби"><br><br>
+            <label for="skills">НАВЫКИ</label><br>
+            <input type="text" th:field="*{student.skills}" id="skills" placeholder="Навыки"><br><br>
+            <!--    <label for="group">Номер группы</label>-->
+            <!--    <input type="hidden" th:field="*{studentGroup.id_group}" id="group" placeholder="Группа">-->
+            <!--    <label for="password">Пароль</label>-->
+            <!--    <input type="password" th:field="*{password}" id="password" placeholder="Пароль">-->
+            <input name="id_stud" type="hidden" th:value="${student.id_student}">
+            <input type="submit" value="ЗАПИСАТЬ" class="bbt"><br>
+            </form><br><br>
+            <p><a th:href="@{/student/{id}(id=${student.id_student})}">ВЫЙТИ</a><br></p>
+        </td>
+    </tr>
+</table>
+<h3>CampusKids</h3>
 </body>
 </html>

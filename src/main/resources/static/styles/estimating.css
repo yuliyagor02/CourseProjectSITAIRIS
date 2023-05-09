@@ -1,0 +1,81 @@
+body{
+    background-image: url("god.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+table{
+    margin-top: 40px;
+    height: 489.2px;
+
+}
+h1{
+    width: 99%;
+    font-family: Verdana;
+    background-color: white;
+    color:#2c2caf;
+    text-align: center;
+    margin-top:10px;
+    font-size: 55px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: 5px solid #2c2caf;
+}
+h3{
+    width: 98%;
+    background-color:white;
+    color:#2c2caf;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 35px;
+    border-radius: 15px;
+    position: fixed;
+    bottom:15px;
+    margin:0px;
+    border: 5px solid #2c2caf;
+}
+table{
+    margin-top: 150px;
+    background-color: rgba(255,255,255,0.95);
+    width: 100%;
+    border-radius: 25px;
+    height: 100px;
+    color:#2c2caf;
+    font-weight:bold;
+    font-size:25px;
+
+}
+th,td{
+    text-align: center;
+    border: 2px solid #2c2caf;
+    border-radius: 25px;
+}
+.clcl{
+    width:400px;
+    border-radius:15px;
+    border: 2px solid #2c2caf;
+    height:50px;
+    margin-left: 560px;
+    margin-top:45px;
+    color:#2c2caf;
+    font-weight: bold;
+    font-size:35px;
+}
+p{
+background-color:rgba(255,255,255,0.95);
+    width: 100%;
+    width:400px;
+    border-radius:15px;
+    border: 2px solid #2c2caf;
+    height:50px;
+    margin-left: 560px;
+    margin-top:45px;
+    text-align: center;
+}
+a{
+    text-align: center;
+    color:#2c2caf;
+    font-weight: bold;
+    font-size:35px;
+    text-decoration: none;
+    font-family: Verdana;
+}

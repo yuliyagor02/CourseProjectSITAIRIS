@@ -6,16 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Отметки</title>
+    <link th:href="@{/styles/marksOfGroup.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Работа с отметками</h1>
-<table>
+<h1>CampusKids - преподаватель</h1>
+<!--<h1>РАБОТА С ОТМЕТКАМИ</h1>-->
+<table class="mn">
 <tr>
     <td>
-        <table>
+        <table >
             <thead>
-            <th>Фамилия</th>
-            <th>Имя</th>
+            <th>ФАМИЛИЯ</th>
+            <th>ИМЯ</th>
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
@@ -32,7 +34,7 @@
     <td>
         <table>
             <thead>
-            <th>Номер зачётки</th>
+            <th>НОМЕР ЗАЧЁТКИ</th>
             <th></th>
             </thead>
             <tbody>
@@ -77,5 +79,6 @@
 <!--        </div>-->
 
 <!--</form>-->
+<h3>CampusKids</h3>
 </body>
 </html>

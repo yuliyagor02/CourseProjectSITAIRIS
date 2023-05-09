@@ -103,8 +103,10 @@ public class StudentController {
         return "redirect:/student-statements/"+Long.toString(id_stud);
     }
 
-    @GetMapping("/university")
-    public String getUniversityPage(Model model){
+    @GetMapping("/university/{id}")
+    public String getUniversityPage(@PathVariable("id") String id_st, Model model){
+    Long id=Long.parseLong(id_st);
+    model.addAttribute("id",id);
         //model.addAttribute("id",id);
         return "universityPage";
     }

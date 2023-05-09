@@ -6,21 +6,37 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Виза и регистрация</title>
+    <link th:href="@{/styles/visa.css}" rel="stylesheet"/>
 </head>
 <body>
-<h3>Сегодняшняя дата: </h3>
-<p th:text="${actual_date}"></p>
-<h1>Виза</h1>
-<h3>Окончание срока действия визы: </h3>
-<p th:text="${visa_validity}"></p>
-<h3>Осталось дней: </h3>
-<p th:text="${days_left1}"></p>
-<br><br>
-<h1>Временная регистрация</h1>
-<h3>Окончание срока временной регистрации: </h3>
-<p th:text="${registration_validity}"></p>
-<h3>Осталось дней: </h3>
-<p th:text="${days_left2}"></p>
-<a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br><br>
+<h1>CampusKid</h1>
+<table class="main">
+    <tr><td colspan="2">
+        <h4>Сегодняшняя дата: </h4>
+        <p th:text="${actual_date}"></p>
+    </td>
+    </tr>
+    <tr>
+        <td th:class="${days_left1<1} ?'cl2':'cl'">
+            <h4>ВИЗА</h4>
+            <h4>ОКОНЧАНИЕ СРОКА ДЕЙСТВИЯ ВИЗЫ: </h4>
+            <p th:text="${visa_validity}"></p>
+            <h4>ОСТАЛОСЬ ДНЕЙ: </h4>
+            <p th:text="${days_left1}"></p>
+        </td>
+        <td th:class="${days_left2<1} ?'cl2':'cl'">
+            <h4>ВРЕМЕННАЯ РЕГИСТРАЦИЯ</h4>
+            <h4>ОКОНЧАНИЕ СРОКА ВРЕМЕННОЙ РЕГИСТРАЦИИ: </h4>
+            <p th:text="${registration_validity}"></p>
+            <h4>ОСТАЛОСЬ ДНЕЙ: </h4>
+            <p th:text="${days_left2}"></p>
+        </td>
+    </tr>
+</table>
+
+
+
+<p class="btn"><a th:href="@{/student/{id}(id=${id})}">НАЗАД</a><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

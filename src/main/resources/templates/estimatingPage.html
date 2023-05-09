@@ -6,18 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Выставить отметку</title>
+    <link th:href="@{/styles/estimating.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Выставление отметки</h1>
+<h1>CampusKid преподаватель</h1>
     <form action="#" th:action="@{/marks-student-control}"  method="post">
         <table>
             <thead>
-            <th>Номер группы</th>
-            <th>Номер зачётки</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Дисциплина</th>
-            <th>Отметка</th>
+            <th>НОМЕР ГРУППЫ</th>
+            <th>НОМЕР ЗАЧЁТКИ</th>
+            <th>ФАМИЛИЯ</th>
+            <th>ИМЯ</th>
+            <th>ДИСЦИПЛИНА</th>
+            <th>ОТЕМТКА</th>
             </thead>
             <tbody></tbody>
             <tr>
@@ -25,7 +26,7 @@
                 <td th:text="${student.id_student}"></td>
                 <td th:text="${user.surname}"></td>
                 <td th:text="${user.name}"></td>
-                <td><label for="subj">Дисциплина</label>
+                <td><label for="subj">ДИСЦИПЛИНА</label>
                     <select id="subj" name="subjectMarked">
                         <option th:each="subject : ${subjects}"
                                 th:value="${subject.subject_name}"
@@ -33,7 +34,7 @@
                         >
                         </option>
                     </select></td>
-                <td> <label for="mrk">Отметка</label>
+                <td> <label for="mrk">ОТМЕТКА</label>
                     <select id="mrk" name="markedNumb">
                         <option th:each="mark : ${marks}"
                                 th:value="${mark}"
@@ -45,7 +46,9 @@
         </table>
 
 <input type="hidden" name="id_stud" th:value="${student.id_student}">
-        <input type="submit" value="Подтвердить">
+        <input type="submit" value="ПОТДВЕРДИТЬ" class="clcl">
 </form>
+<p><a th:href="@{/teacher/2}" >ЗАКОНЧИТЬ</a><br></p>
+<h3>CampusKids</h3>
 </body>
 </html>

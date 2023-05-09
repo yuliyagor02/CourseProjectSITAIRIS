@@ -6,13 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Учитель</title>
+    <link th:href="@{/styles/teacherMainPage.css}" rel="stylesheet"/>
+
 </head>
 <body>
-<h1>Hi, teacher!</h1>
-<a th:href="@{/marks-control}">Отметки студентов</a><br><br>
-<a th:href="@{/students-by-groups}">Списки групп</a><br><br>
-<a th:href="@{/stages}">Ступени образования по количеству иностранных студентов</a><br><br>
+<h1>CampusKid - преподаватель</h1>
+<table class="main">
+    <tr>
+        <td>
+            <img height="430px" weight="750px" th:src="@{/styles/books.webp}"/>
+        </td>
+        <td>
+            <p><a th:href="@{/marks-control}">ОТМЕТКИ</a><br></p>
+<!--            <p><a th:href="@{/students-by-groups}">Списки групп</a><br></p>-->
+            <p><a th:href="@{/stages}">СТАТИСТИКА СТУПЕНЕЙ ОБРАЗОВАНИЯ</a><br></p>
+            <p><a th:href="@{/sign-in}">ВЫЙТИ</a><br></p>
+        </td>
+    </tr>
+</table>
+<h3>CampusKids</h3>
 
-<a th:href="@{/sign-in}">Выйти</a><br><br>
 </body>
 </html>

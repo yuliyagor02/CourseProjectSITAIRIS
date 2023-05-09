@@ -1,0 +1,120 @@
+body{
+    background-image: url("god.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+table{
+    margin-top: 40px;
+}
+h1{
+    width: 99%;
+    font-family: Verdana;
+    background-color: white;
+    color:#2c2caf;
+    text-align: center;
+    margin-top:10px;
+    font-size: 55px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: 5px solid #2c2caf;
+}
+h3{
+    width: 98%;
+    background-color:white;
+    color:#2c2caf;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 35px;
+    border-radius: 15px;
+    position: fixed;
+    bottom:15px;
+    margin:0px;
+    border: 5px solid #2c2caf;
+}
+.main{
+    width:100%;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 25px;
+    text-align: center;
+}
+p{
+    background-color:#2c2caf;
+    border-radius: 15px;
+    padding: 8px;
+}
+a{
+    text-decoration: none;
+    color:white;
+    font-family: Verdana;
+    font-weight: bold;
+}
+.menu{
+    text-align: left;
+}
+p:hover{
+    background-color: #369696;
+}
+
+form{
+    background-color:rgba(44,44,175,0.7);
+    border-radius: 25px;
+    color:white;
+    font-weight: bold;
+    font-size:18px;
+}
+input{
+    background-color: white;
+    border-radius: 10px;
+    height: 20px;
+    width: 400px;
+}
+.btn{
+    width:200px;
+    text-align: center;
+    margin-left: 650px;
+}
+.btn a{
+    text-align: center;
+}
+.l>th{
+    color:white;
+    font-weight: bold;
+    font-size:25px;
+    background-color: rgb(44,44,175);
+    border-radius: 25px;
+    padding: 15px;
+}
+.button1{
+    height: 40px;
+    color:#2c2caf;
+    margin-top:10px;
+    width:200px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size:25px;
+    margin-bottom:10px;
+}
+.button1:hover{
+    background-color: #369696;
+    font-size: 35px;
+    font-weight: bold;
+    color:white;
+}
+.smallTbl{
+
+}
+.smallTbl th, .smallTbl td{
+    border: 2px solid rgb(44,44,175);
+    border-radius: 8px;
+    background-color: rgba(44,44,175,0.7);
+    color:white;
+    font-size: large;
+    font-weight: bold;
+}
+.smallTbl{
+    width: 100%;
+   margin:0px;
+}
+.smallTbl td{
+    background-color: rgba(44,44,175,0.5);
+}

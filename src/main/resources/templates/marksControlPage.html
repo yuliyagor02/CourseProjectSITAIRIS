@@ -6,11 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Отметки</title>
+    <link th:href="@{/styles/mark1.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Работа с отметками</h1>
+<h1>CampusKids - преподаватель</h1>
+<h2>ВЫБЕРИТЕ СТУДЕНЧЕСКУЮ ГРУППУ</h2>
 <form action="#" th:action="@{/marks-control}"  method="post">
-    <label for="id_gr">Номер группы</label>
+    <label for="id_gr">НОМЕР ГРУППЫ</label>
     <select id="id_gr" name="allGroups">
         <option th:each="allGroups : ${allGroups}"
                 th:value="${allGroups.id_group}"
@@ -35,7 +37,9 @@
 <!--            <option th:each="marks : ${marks}">${marks}</option>-->
 <!--        </select> -->
 <!--    </div>-->
-    <input type="submit" value="Показать">
+    <input  type="submit" value="ДАЛЕЕ">
 </form>
+<!--class="qw"-->
+<h3>CampusKids</h3>
 </body>
 </html>

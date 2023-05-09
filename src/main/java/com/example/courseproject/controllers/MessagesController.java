@@ -31,6 +31,12 @@ public class MessagesController {
     public String getStudentMessagesPage(@PathVariable("id") Long id, Model model){
         model.addAttribute("id",id);
         List<Message> messages = messagesService.findMessagesByStudentId(id);
+        List<Message> messages1 = new ArrayList<>();
+        int flag=0;
+        for (Message message:messages) {
+            if(message.getIsRead()==0) flag++;
+        }
+        if(flag==0) messages=null;
         model.addAttribute("messages",messages);
         return "studentMessagesPage";
     }

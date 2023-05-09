@@ -6,19 +6,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusKids - Студент</title>
+    <link th:href="@{/styles/studentMainStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Hi, CampusKid!</h1>
+<h1>CampusKid</h1>
+<table class="main">
+    <tr>
+        <td>
+            <img height="430px" weight="750px" th:src="@{/styles/stud1.png}"/>
+        </td>
+        <td class="menu">
+            <p><a th:href="@{/update-student/{id}(id=${id})}">SKILLS И ХОББИ</a><br></p>
+            <p><a th:href="@{/student-marks/{id}(id=${id})}">МОЯ УСПЕВАЕМОСТЬ</a><br></p>
+            <p><a th:href="@{/student-subjects-rating/{id}(id=${id})}">РЕЙТИНГ ДИСЦИПЛИН</a><br></p>
+            <p><a th:href="@{/student-messages/{id}(id=${id})}">МОИ ОПОВЕЩЕНИЯ</a><br></p>
+            <p><a th:href="@{/student-statements/{id}(id=${id})}">ВЕДОМОСТИЧКИ</a><br></p>
+            <p><a th:href="@{/student-visa-and-temporary-registration/{id}(id=${id})}">ВИЗА И ВРЕМЕННАЯ РЕГИСТРАЦИЯ</a><br></p>
+            <p><a th:href="@{/student-health-insurance/{id}(id=${id})}">МЕДИЦИНСКАЯ СТРАХОВКА</a><br></p>
+            <p><a th:href="@{/university/{id}(id=${id})}">ОБ УНИВЕРСИТЕТЕ</a><br></p>
+            <p><a th:href="@{/sign-in}">ВЫЙТИ</a><br></p>
+        </td>
 
-<a th:href="@{/update-student/{id}(id=${id})}">Обновить skills и хобби</a><br><br>
-<a th:href="@{/student-marks/{id}(id=${id})}">Моя успеваемость</a><br><br>
-<a th:href="@{/student-subjects-rating/{id}(id=${id})}">Рейтинг дисциплин</a><br><br>
-<a th:href="@{/student-messages/{id}(id=${id})}">Мои сообщения</a><br><br>
-<a th:href="@{/student-statements/{id}(id=${id})}">Ведомостички</a><br><br>
-<a th:href="@{/student-visa-and-temporary-registration/{id}(id=${id})}">Виза и временная регистрация</a><br><br>
-<a th:href="@{/student-health-insurance/{id}(id=${id})}">Медицинская страховка</a><br><br>
-<a th:href="@{/university}">Об университете (YouTube)</a><br><br>
-<a th:href="@{/sign-in}">Выйти</a><br><br>
-
+    </tr>
+</table>
+<h3>CampusKids</h3>
 </body>
 </html>
